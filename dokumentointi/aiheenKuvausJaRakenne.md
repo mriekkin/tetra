@@ -37,7 +37,7 @@ Seuraavat toiminnot ovat olennainen osa pelilogiikkaa, mutta pelaaja ei kontroll
     * Pelaaja saa pisteitä täyttyneiden rivien lukumäärän mukaan. Parhaat pisteet saa neljällä samanaikaisella rivillä.
   * Jos yksikään vaakarivi ei täyttynyt kokonaan
     * Viimeisin pelattu palikka jää paikalleen.
-    * Peli arpoo uuden palikan, ja lähettää sen liikkeelle pelialueen yläreunasta.
+  * Peli arpoo uuden palikan, ja lähettää sen liikkeelle pelialueen yläreunasta.
 * *Peli päättyy, kun palikoiden pino saavuttaa pelialueen yläreunan*
   * Pelin päätyttyä näytetään muutamia tilastotietoja, kuten kokonaispisteet, tuhotut rivit ja pelin kesto.
   * Jos pistemäärä oikeuttaa sijoitukseen pistelistalla, kysytään listalle talletettava nimi.
