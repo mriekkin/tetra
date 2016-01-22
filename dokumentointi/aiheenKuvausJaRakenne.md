@@ -38,13 +38,27 @@ Seuraavat toiminnot ovat olennainen osa pelilogiikkaa, mutta pelaaja ei kontroll
   * Jos yksikään vaakarivi ei täyttynyt kokonaan
     * Viimeisin pelattu palikka jää paikalleen.
     * Peli arpoo uuden palikan, ja lähettää sen liikkeelle pelialueen yläreunasta.
+* *Peli päättyy, kun palikoiden pino saavuttaa pelialueen yläreunan*
+  * Pelin päätyttyä näytetään muutamia tilastotietoja, kuten kokonaispisteet, tuhotut rivit ja pelin kesto.
+  * Jos pistemäärä oikeuttaa sijoitukseen pistelistalla, kysytään listalle talletettava nimi.
+  * Pelaaja voi aloittaa uuden pelin, siirtyä valikoihin tai poistua ohjelmasta.
 
-Pelaajalla on käytettävissä myös seuraavat toiminnot, jotka eivät liity pelilogiikkaan.
+Pelin aika pelaajalla on käytettävissä myös seuraavat toiminnot, jotka eivät liity pelilogiikkaan.
 
 * *Pause*
-* *Pelin lopettaminen ja pelistä poistuminen*
+* *Pelin lopettaminen ja valikoihin siirtyminen*
 
 **Pelaajan toiminnot, silloin kun peli ei ole käynnissä (valikot):**
 
 * *Uuden pelin aloitus*
 * *Pistelista (high score table)*
+
+**Aiheen laajennusmahdollisuudet:**
+
+Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajentaa ajan niin salliessa.
+
+* *Väriteeman valinta (grafiikoiden valinta)*
+* *Haamupalikka, joka näyttää tulevan loppuasennon (ghost piece)*
+* *Pelitilanteen tallennus ja aikaisemmin tallennetun pelin jatkaminen*
+* *Pistelaskun jatkokehitys (esimerkiksi T Spin)*
+* *Kootut tilastotiedot kaikista pelatuista peleistä*
