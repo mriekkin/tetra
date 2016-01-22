@@ -2,5 +2,5 @@
 
 Pvm       | Vkp | Tunnit | Kuvaus
 :-------- |:--- | ------:| :----------------------------------
-22.1.2016 | ma  | 8      | Ensimmäinen palautus
+22.1.2016 | pe  | 8      | Ensimmäinen palautus
 
