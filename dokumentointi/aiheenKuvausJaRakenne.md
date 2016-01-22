@@ -51,7 +51,9 @@ Pelin aika pelaajalla on käytettävissä myös seuraavat toiminnot, jotka eivä
 **Pelaajan toiminnot, silloin kun peli ei ole käynnissä (valikot):**
 
 * *Uuden pelin aloitus*
+* *Asetukset*
 * *Pistelista (high score table)*
+* *Ohjelman sulkeminen*
 
 **Aiheen laajennusmahdollisuudet:**
 
