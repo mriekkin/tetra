@@ -71,4 +71,4 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 
 ## Määrittelyvaiheen luokkakaavio
 
-![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio.png)
+![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio-v2.png)
