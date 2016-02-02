@@ -66,3 +66,7 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 * *Pelitilanteen tallennus ja aikaisemmin tallennetun pelin jatkaminen*
 * *Pistelaskun jatkokehitys (esimerkiksi T Spin)*
 * *Kootut tilastotiedot kaikista pelatuista peleistä*
+
+# Määrittelyvaiheen luokkakaavio
+
+![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio.png)
