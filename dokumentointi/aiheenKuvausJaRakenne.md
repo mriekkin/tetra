@@ -1,4 +1,4 @@
-# Aiheen kuvaus ja ohjelman rakenne
+# Aiheen kuvaus ja rakenne
 
 ## Aihemäärittely
 
