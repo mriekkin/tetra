@@ -1,4 +1,6 @@
-# Aihemäärittely
+# Aiheen kuvaus ja ohjelman rakenne
+
+## Aihemäärittely
 
 **Aihe:** Tetris
 
@@ -67,6 +69,6 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 * *Pistelaskun jatkokehitys (esimerkiksi T Spin)*
 * *Kootut tilastotiedot kaikista pelatuista peleistä*
 
-# Määrittelyvaiheen luokkakaavio
+## Määrittelyvaiheen luokkakaavio
 
 ![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio.png)
