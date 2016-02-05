@@ -6,4 +6,4 @@ Pvm       | Vkp | Tunnit | Kuvaus
 29.1.2016 | pe  | 5      | Määrittelyvaiheen luokkakaavio
 2.2.2016  | ti  | 2      | Sivujen ja luokkakaavion päivitystä
 4.2.2016  | to  | 3      | Aloitin logiikkaluokkien koodauksen
-5.2.2016  | pe  | 8      | Logiikkaluokkien koodausta, koodikatselmointi, yksikkötestejä
+5.2.2016  | pe  | 9      | Logiikkaluokkien koodausta, koodikatselmointi, yksikkötestejä
