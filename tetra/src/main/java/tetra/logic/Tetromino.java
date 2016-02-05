@@ -21,25 +21,35 @@ public enum Tetromino {
     T(new int[]{0x0E40, 0x4C40, 0x4E00, 0x4640}, 0),
     Z(new int[]{0x0C60, 0x4C80, 0xC600, 0x2640}, 0);
 
-    public final int ROWS = 4;
-    public final int COLS = 4;
+    public final int WIDTH = 4;
+    public final int HEIGHT = 4;
 
     private final int[] blocks;
     private final int color;
+    private final Block blockType;
 
     private Tetromino(int[] blocks, int color) {
         this.blocks = blocks;
         this.color = color;
+        this.blockType = new Block(color);
     }
 
     public boolean isOccupied(Direction orientation, int x, int y) {
-        if (x < 0 || y < 0 || x >= ROWS || y >= COLS) {
+        if (x < 0 || y < 0 || x >= HEIGHT || y >= WIDTH) {
             return false;
         }
 
         int grid = blocks[orientation.ordinal()];
-        int bit = (grid >> (y * ROWS + x)) & 1;
+        int bit = (grid >> (y * HEIGHT + x)) & 1;
         return bit == 1;
+    }
+
+    public Block getBlock(Direction orientation, int x, int y) {
+        if (!isOccupied(orientation, x, y)) {
+            return null;
+        }
+
+        return blockType;
     }
 
     public int getColor() {
