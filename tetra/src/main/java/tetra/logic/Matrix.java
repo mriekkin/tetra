@@ -28,12 +28,12 @@ public class Matrix {
         grid[y][x] = block;
     }
 
-    public void addPiece(Piece piece, int x, int y) {
-        final int width = piece.getWidth();
-        final int height = piece.getHeight();
-        for (int dy = 0; dy < height; dy++) {
-            for (int dx = 0; dx < width; dx++) {
-                Block block = piece.getBlock(x + dx, y + dy);
+    public void addPiece(Piece piece) {
+        for (int dy = 0; dy < piece.getHeight(); dy++) {
+            for (int dx = 0; dx < piece.getWidth(); dx++) {
+                int x = piece.getX() + dx;
+                int y = piece.getY() + dy;
+                Block block = piece.getBlock(x, y);
 
                 if (block != null) {
                     setBlock(x, y, block);
