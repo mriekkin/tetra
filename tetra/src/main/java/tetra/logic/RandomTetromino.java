@@ -13,16 +13,16 @@ public class RandomTetromino {
 
     public RandomTetromino(Random random) {
         this.random = random;
-        this.bag = createListOfTetrominoes(4);
+        this.bag = createBagOfTetrominoes(4);
         this.n = bag.size();
     }
 
-    private List<Tetromino> createListOfTetrominoes(int numEach) {
+    private List<Tetromino> createBagOfTetrominoes(int duplicates) {
+        Tetromino[] tetrominoes = Tetromino.values();
+
         List<Tetromino> list = new ArrayList<>();
-        for (Tetromino tetromino : Tetromino.values()) {
-            for (int i = 0; i < numEach; i++) {
-                list.add(tetromino);
-            }
+        for (int i = 0; i < duplicates; i++) {
+            Collections.addAll(list, tetrominoes);
         }
 
         return list;
@@ -31,7 +31,6 @@ public class RandomTetromino {
     public Tetromino nextTetromino() {
         if (n == 0) {
             n = bag.size();
-            Collections.sort(bag);
         }
 
         int next = random.nextInt(n);

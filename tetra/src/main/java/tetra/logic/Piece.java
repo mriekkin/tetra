@@ -55,8 +55,10 @@ public class Piece {
     private boolean testCollision(Direction newOrientation, int newX, int newY) {
         for (int dy = 0; dy < tetromino.HEIGHT; dy++) {
             for (int dx = 0; dx < tetromino.WIDTH; dx++) {
-                if (tetromino.isOccupied(newOrientation, dx, dy)
-                        && matrix.isOccupied(newX + dx, newY + dy)) {
+                boolean isOccupied1 = tetromino.isOccupied(newOrientation, dx, dy);
+                boolean isOccupied2 = matrix.isOccupied(newX + dx, newY + dy);
+
+                if (isOccupied1 && isOccupied2) {
                     return true;
                 }
             }
