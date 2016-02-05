@@ -23,7 +23,6 @@ public enum Tetromino {
 
     public final int ROWS = 4;
     public final int COLS = 4;
-    public final int DIRECTIONS = 4;
 
     private final int[] blocks;
     private final int color;
@@ -33,16 +32,12 @@ public enum Tetromino {
         this.color = color;
     }
 
-    public boolean isOccupied(int direction, int x, int y) {
+    public boolean isOccupied(Direction orientation, int x, int y) {
         if (x < 0 || y < 0 || x >= ROWS || y >= COLS) {
             return false;
         }
 
-        if (direction < 0 || direction >= DIRECTIONS) {
-            return false;
-        }
-
-        int grid = blocks[direction];
+        int grid = blocks[orientation.ordinal()];
         int bit = (grid >> (y * ROWS + x)) & 1;
         return bit == 1;
     }
