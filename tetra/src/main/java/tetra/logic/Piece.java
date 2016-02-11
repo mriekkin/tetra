@@ -2,14 +2,16 @@ package tetra.logic;
 
 public class Piece {
 
+    private RandomTetromino random;
+    private Tetromino tetromino;
+    private Direction orientation;
     private Matrix matrix;
     private int x;
     private int y;
-    private Tetromino tetromino;
-    private Direction orientation;
 
-    public Piece(Tetromino tetromino, Matrix matrix) {
-        this.tetromino = tetromino;
+    public Piece(RandomTetromino random, Matrix matrix) {
+        this.random = random;
+        this.tetromino = random.nextTetromino();
         orientation = Direction.UP;
 
         this.matrix = matrix;
@@ -21,7 +23,7 @@ public class Piece {
         int newX = x + direction.dx();
         int newY = y + direction.dy();
 
-        return testCollision(orientation, newX, newY);
+        return !testCollision(orientation, newX, newY);
     }
 
     public void move(Direction direction) {
@@ -35,7 +37,7 @@ public class Piece {
 
     public boolean canRotate(boolean clockwise) {
         Direction newDirection = orientation.rotate(clockwise);
-        return testCollision(newDirection, x, y);
+        return !testCollision(newDirection, x, y);
     }
 
     public void rotate(boolean clockwise) {
@@ -69,6 +71,15 @@ public class Piece {
 
     public Tetromino getTetromino() {
         return tetromino;
+    }
+
+    public void setTetromino(Tetromino tetromino) {
+        this.tetromino = tetromino;
+    }
+
+    public void setNextRandomTetromino() {
+        tetromino = random.nextTetromino();
+        orientation = Direction.UP;
     }
 
     public int getX() {

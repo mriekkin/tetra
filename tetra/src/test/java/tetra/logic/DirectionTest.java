@@ -21,9 +21,9 @@ public class DirectionTest {
 
     @Test
     public void verticalTranslationsAreDefinedCorrectly() {
-        assertEquals(1, Direction.UP.dy());
+        assertEquals(-1, Direction.UP.dy());
         assertEquals(0, Direction.RIGHT.dy());
-        assertEquals(-1, Direction.DOWN.dy());
+        assertEquals(1, Direction.DOWN.dy());
         assertEquals(0, Direction.LEFT.dy());
     }
 

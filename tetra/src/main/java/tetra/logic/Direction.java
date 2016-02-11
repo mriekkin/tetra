@@ -16,11 +16,11 @@ public enum Direction {
 
     private static void setTranslations() {
         UP.dx = 0;
-        UP.dy = 1;
+        UP.dy = -1;
         RIGHT.dx = 1;
         RIGHT.dy = 0;
         DOWN.dx = 0;
-        DOWN.dy = -1;
+        DOWN.dy = 1;
         LEFT.dx = -1;
         LEFT.dy = 0;
     }

@@ -46,7 +46,7 @@ public class TetrominoTest {
     @Test
     public void getColorReturnsTheRightColor() {
         // Colors will be set when programming the GUI
-        assertEquals(0, Tetromino.T.getColor());
+        assertEquals(0xaa00ff, Tetromino.T.getColor());
     }
 
 }
