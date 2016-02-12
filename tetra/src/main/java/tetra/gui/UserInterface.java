@@ -17,8 +17,8 @@ public class UserInterface implements Runnable {
     private final Piece piece;
     private GamePanel gamePanel;
 
-    private final int BLOCK_SIZE = 38;
-    private final int BLOCK_SPACING = 2;
+    private final int blockSize = 38;
+    private final int blockSpacing = 2;
 
     public UserInterface(Tetra game) {
         this.game = game;
@@ -48,7 +48,7 @@ public class UserInterface implements Runnable {
     private void createComponents(Container container) {
         container.setLayout(new BorderLayout());
 
-        gamePanel = new GamePanel(game, BLOCK_SIZE, BLOCK_SPACING);
+        gamePanel = new GamePanel(game, blockSize, blockSpacing);
         container.add(gamePanel, BorderLayout.CENTER);
 
         frame.addKeyListener(new PieceKeyListener(piece, gamePanel));
@@ -61,11 +61,11 @@ public class UserInterface implements Runnable {
     }
 
     public int getRequiredWidth() {
-        return (BLOCK_SPACING + BLOCK_SIZE) * matrix.getCols() + BLOCK_SPACING;
+        return (blockSpacing + blockSize) * matrix.getCols() + blockSpacing;
     }
 
     public int getRequiredHeight() {
-        return (BLOCK_SPACING + BLOCK_SIZE) * matrix.getRows() + BLOCK_SPACING;
+        return (blockSpacing + blockSize) * matrix.getRows() + blockSpacing;
     }
 
     public JFrame getFrame() {

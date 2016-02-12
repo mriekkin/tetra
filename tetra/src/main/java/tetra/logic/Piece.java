@@ -15,7 +15,7 @@ public class Piece {
         orientation = Direction.UP;
 
         this.matrix = matrix;
-        x = (matrix.getCols() - tetromino.WIDTH) / 2;
+        x = (matrix.getCols() - tetromino.width) / 2;
         y = 0;
     }
 
@@ -55,15 +55,15 @@ public class Piece {
     }
 
     private boolean testCollision(Direction newOrientation, int newX, int newY) {
-        for (int dy = 0; dy < tetromino.HEIGHT; dy++) {
-            for (int dx = 0; dx < tetromino.WIDTH; dx++) {
+        for (int dy = 0; dy < tetromino.height; dy++) {
+            for (int dx = 0; dx < tetromino.width; dx++) {
                 boolean isOccupied1 = tetromino.isOccupied(newOrientation, dx, dy);
                 boolean isOccupied2 = matrix.isOccupied(newX + dx, newY + dy);
 
                 if (isOccupied1 && isOutOfBounds(newX + dx, newY + dy)) {
                     return true;
                 }
-                
+
                 if (isOccupied1 && isOccupied2) {
                     return true;
                 }
@@ -74,7 +74,6 @@ public class Piece {
     }
 
     private boolean isOutOfBounds(int x, int y) {
-        // We allow y < 0 because the piece respawns at the top
         return x < 0 || x >= matrix.getCols() || y < 0 || y >= matrix.getRows();
     }
 
@@ -90,7 +89,7 @@ public class Piece {
     }
 
     private void moveToInitialPosition() {
-        x = (matrix.getCols() - tetromino.WIDTH) / 2;
+        x = (matrix.getCols() - tetromino.width) / 2;
         y = 0;
     }
 
@@ -111,11 +110,11 @@ public class Piece {
     }
 
     public int getWidth() {
-        return tetromino.WIDTH;
+        return tetromino.width;
     }
 
     public int getHeight() {
-        return tetromino.HEIGHT;
+        return tetromino.height;
     }
 
     public Direction getOrientation() {

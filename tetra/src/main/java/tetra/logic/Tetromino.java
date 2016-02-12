@@ -23,8 +23,8 @@ public enum Tetromino {
     T(new int[]{0x4E00, 0x4640, 0x0E40, 0x4C40}, 0xaa00ff),
     Z(new int[]{0xC600, 0x2640, 0x0C60, 0x4C80}, 0xff0000);
 
-    public final int WIDTH = 4;
-    public final int HEIGHT = 4;
+    public final int width = 4;
+    public final int height = 4;
 
     private final int[] blocks;
     private final int color;
@@ -37,12 +37,12 @@ public enum Tetromino {
     }
 
     public boolean isOccupied(Direction orientation, int x, int y) {
-        if (x < 0 || y < 0 || x >= HEIGHT || y >= WIDTH) {
+        if (x < 0 || y < 0 || x >= height || y >= width) {
             return false;
         }
 
         int grid = blocks[orientation.ordinal()];
-        int shift = y * WIDTH + x;
+        int shift = y * width + x;
         int bit = 0x8000 >> shift;
         return (grid & bit) != 0;
     }
