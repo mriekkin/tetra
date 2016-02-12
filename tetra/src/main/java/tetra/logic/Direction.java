@@ -1,5 +1,9 @@
 package tetra.logic;
 
+/**
+ * Represents the directions up, down, left and right.
+ *
+ */
 public enum Direction {
 
     UP, RIGHT, DOWN, LEFT;

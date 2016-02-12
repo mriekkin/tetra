@@ -1,5 +1,11 @@
 package tetra.logic;
 
+/**
+ * Represents the active piece that the player can control.
+ *
+ * The active piece is not considered part of the matrix until it locks into
+ * place.
+ */
 public class Piece {
 
     private RandomTetromino random;

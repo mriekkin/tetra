@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Produces a random stream of Tetrominos which adheres to certain rules.
+ */
 public class RandomTetromino {
 
     private Random random;

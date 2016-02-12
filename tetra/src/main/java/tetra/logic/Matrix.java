@@ -1,5 +1,8 @@
 package tetra.logic;
 
+/**
+ * Represents a rectangular matrix consisting of empty cells and Blocks.
+ */
 public class Matrix {
 
     private Block[][] grid;
