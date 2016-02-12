@@ -37,8 +37,9 @@ public class PieceKeyListener implements KeyListener {
             case KeyEvent.VK_X:
                 piece.rotate(true);
                 break;
-            case KeyEvent.VK_C:
-                piece.setNextRandomTetromino();
+            case KeyEvent.VK_SPACE:
+                piece.lockAndRespawn();
+                break;
         }
 
         component.repaint();

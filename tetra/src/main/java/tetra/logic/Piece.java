@@ -60,6 +60,10 @@ public class Piece {
                 boolean isOccupied1 = tetromino.isOccupied(newOrientation, dx, dy);
                 boolean isOccupied2 = matrix.isOccupied(newX + dx, newY + dy);
 
+                if (isOccupied1 && isOutOfBounds(newX + dx, newY + dy)) {
+                    return true;
+                }
+                
                 if (isOccupied1 && isOccupied2) {
                     return true;
                 }
@@ -69,17 +73,33 @@ public class Piece {
         return false;
     }
 
+    private boolean isOutOfBounds(int x, int y) {
+        // We allow y < 0 because the piece respawns at the top
+        return x < 0 || x >= matrix.getCols() || y < 0 || y >= matrix.getRows();
+    }
+
+    public void lockAndRespawn() {
+        matrix.addPiece(this);
+        setNextRandomTetromino();
+        moveToInitialPosition();
+    }
+
+    private void setNextRandomTetromino() {
+        tetromino = random.nextTetromino();
+        orientation = Direction.UP;
+    }
+
+    private void moveToInitialPosition() {
+        x = (matrix.getCols() - tetromino.WIDTH) / 2;
+        y = 0;
+    }
+
     public Tetromino getTetromino() {
         return tetromino;
     }
 
     public void setTetromino(Tetromino tetromino) {
         this.tetromino = tetromino;
-    }
-
-    public void setNextRandomTetromino() {
-        tetromino = random.nextTetromino();
-        orientation = Direction.UP;
     }
 
     public int getX() {

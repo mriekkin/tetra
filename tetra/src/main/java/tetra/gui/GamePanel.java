@@ -2,46 +2,58 @@ package tetra.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.HashMap;
 import javax.swing.JPanel;
 import tetra.logic.Block;
 import tetra.logic.Matrix;
 import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
-public class GameView extends JPanel {
+public class GamePanel extends JPanel {
 
-    private final int border = 2;
-    private final int interior = 38;
+    private final int spacing;
+    private final int blockSize;
+    private final Color gridLineColor;
 
     Tetra game;
     private Matrix matrix;
     private Piece piece;
 
-    private HashMap<Integer, Color> colors;
-
-    public GameView(Tetra game) {
+    public GamePanel(Tetra game, int blockSize, int spaceBetweenBlocks) {
         this.game = game;
         this.matrix = game.getMatrix();
         this.piece = game.getPiece();
 
         super.setBackground(Color.BLACK);
-    }
 
-    public int getRequiredWidth() {
-        return (border + interior) * 10 + border;
-    }
+        gridLineColor = new Color(0x1a1a1a);
 
-    public int getRequiredHeight() {
-        return (border + interior) * 20 + border;
+        this.blockSize = blockSize;
+        this.spacing = spaceBetweenBlocks;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        paintGrid(g);
         paintMatrix(g);
         paintPiece(g);
+    }
+
+    private void paintGrid(Graphics g) {
+        g.setColor(gridLineColor);
+
+        final int cellSize = spacing + blockSize;
+        final int width = cellSize * matrix.getCols() + spacing;
+        final int height = cellSize * matrix.getRows() + spacing;
+
+        for (int y = 0; y < matrix.getRows(); y++) {
+            g.drawLine(0, y * cellSize, width, y * cellSize);
+        }
+
+        for (int x = 0; x < matrix.getCols(); x++) {
+            g.drawLine(x * cellSize, 0, x * cellSize, height);
+        }
     }
 
     private void paintMatrix(Graphics g) {
@@ -71,10 +83,10 @@ public class GameView extends JPanel {
     }
 
     private void paintBlock(Graphics g, int x, int y, Block block) {
-        int fillX = x * (border + interior) + border;
-        int fillY = y * (border + interior) + border;
-        g.setColor(new Color(block.getColor()));
-        g.fillRect(fillX, fillY, interior, interior);
+        int fillX = x * (spacing + blockSize) + spacing;
+        int fillY = y * (spacing + blockSize) + spacing;
+        g.setColor(block.getColorAwt());
+        g.fillRect(fillX, fillY, blockSize, blockSize);
     }
 
 }

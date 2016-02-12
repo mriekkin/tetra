@@ -6,7 +6,6 @@ import tetra.logic.Matrix;
 import tetra.logic.Piece;
 import tetra.logic.RandomTetromino;
 import tetra.logic.Tetra;
-import tetra.logic.Tetromino;
 
 public class Main {
 
@@ -15,7 +14,7 @@ public class Main {
         RandomTetromino random = new RandomTetromino(new Random());
         Piece piece = new Piece(random, matrix);
         Tetra game = new Tetra(matrix, piece);
-        TetraGui gui = new TetraGui(game);
+        UserInterface gui = new UserInterface(game);
 
         SwingUtilities.invokeLater(gui);
     }
