@@ -9,3 +9,4 @@ Pvm       | Vkp | Tunnit | Kuvaus
 5.2.2016  | pe  | 9      | Logiikkaluokkien koodausta, koodikatselmointi, yksikkötestejä
 6.2.2016  | la  | 5      | Yksikkötestejä logiikkaluokille
 11.2.2016 | to  | 3      | Käyttöliittymän koodauksen aloitus
+12.2.2016 | pe  | 5      | Alustava luonnos käyttöliittymästä, lisää yksikkötestejä
