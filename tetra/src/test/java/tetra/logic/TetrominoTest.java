@@ -31,8 +31,8 @@ public class TetrominoTest {
         Tetromino tetromino = Tetromino.Z;
         Direction direction = Direction.DOWN;
 
-        for (int y = 0; y < tetromino.HEIGHT; y++) {
-            for (int x = 0; x < tetromino.WIDTH; x++) {
+        for (int y = 0; y < tetromino.height; y++) {
+            for (int x = 0; x < tetromino.width; x++) {
                 String coordinates = String.format("Tetromino Z[DOWN] block (x,y) = (%d,%d)", x, y);
 
                 boolean isOccupied = tetromino.isOccupied(direction, x, y);

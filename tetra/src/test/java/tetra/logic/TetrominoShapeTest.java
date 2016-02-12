@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 public class TetrominoShapeTest {
 
     private String[] getShape(Tetromino tetromino, Direction direction) {
-        String[] shape = new String[tetromino.HEIGHT];
-        for (int y = 0; y < tetromino.HEIGHT; y++) {
+        String[] shape = new String[tetromino.height];
+        for (int y = 0; y < tetromino.height; y++) {
             shape[y] = getRow(tetromino, direction, y);
         }
 
@@ -16,7 +16,7 @@ public class TetrominoShapeTest {
 
     private String getRow(Tetromino tetromino, Direction direction, int y) {
         StringBuilder row = new StringBuilder();
-        for (int x = 0; x < tetromino.WIDTH; x++) {
+        for (int x = 0; x < tetromino.width; x++) {
             boolean isOccupied = tetromino.isOccupied(direction, x, y);
 
             if (isOccupied) {
