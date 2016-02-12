@@ -11,6 +11,8 @@ Tetriksen palikat koostuvat neljästä yhden ruudun kokoisesta palasesta. Alkupe
 
 Katso [aihemäärittely ja luokkakaavio](dokumentointi/aiheenKuvausJaRakenne.md) sekä [tuntikirjanpito](dokumentointi/tuntikirjanpito.md).
 
+Päivitetty [Pit-raportti](dokumentointi/pit/) ja [checkstyle-raportti](dokumentointi/checkstyle/) löytyvät omista kansioistaan.
+
 ## Käyttöliittymän luonnos
 
 Käyttöliittymästä on tehty osittainen alustava luonnos. Luonnos on tehty testausta ajatellen siten, että palikoida voi liikutella ja lukita matriisiin. Pelistä kuitenkin puuttuu vielä kokonaan varsinainen pelisilmukka, joka pyörittäisi peliä.
