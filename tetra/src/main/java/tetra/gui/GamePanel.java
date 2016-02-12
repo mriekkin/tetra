@@ -8,6 +8,9 @@ import tetra.logic.Matrix;
 import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
+/**
+ * Draws the game view
+ */
 public class GamePanel extends JPanel {
 
     private final int spacing;

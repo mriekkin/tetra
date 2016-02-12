@@ -6,6 +6,11 @@ import java.awt.event.KeyListener;
 import tetra.logic.Direction;
 import tetra.logic.Piece;
 
+/**
+ * Listens and reacts to keyboard events during the game.
+ *
+ * For instance, moves the active piece when the user presses the arrow keys.
+ */
 public class PieceKeyListener implements KeyListener {
 
     private Component component;

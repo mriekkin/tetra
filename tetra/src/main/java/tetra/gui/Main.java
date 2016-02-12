@@ -7,6 +7,9 @@ import tetra.logic.Piece;
 import tetra.logic.RandomTetromino;
 import tetra.logic.Tetra;
 
+/**
+ * Program entry point: contains the main()
+ */
 public class Main {
 
     public static void main(String[] args) {

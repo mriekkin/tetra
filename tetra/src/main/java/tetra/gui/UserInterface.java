@@ -9,6 +9,11 @@ import tetra.logic.Matrix;
 import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
+/**
+ * The principal GUI class.
+ *
+ * Implements a GUI using the Java Swing library.
+ */
 public class UserInterface implements Runnable {
 
     private JFrame frame;
