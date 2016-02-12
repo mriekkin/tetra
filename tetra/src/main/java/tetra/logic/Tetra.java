@@ -1,5 +1,8 @@
 package tetra.logic;
 
+/**
+ * Contains the principal game logic loop.
+ */
 public class Tetra {
 
     private Matrix matrix;
