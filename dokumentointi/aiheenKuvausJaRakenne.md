@@ -72,3 +72,10 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 ## Määrittelyvaiheen luokkakaavio
 
 ![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio-v2.png)
+
+## Sekvenssikaaviot
+
+Ensimmäiseksi kuvataan tapaus, jossa käyttäjä ohjaa pelattavaa palikkaa sivusuunnassa. Tässä tapauksessa käyttäjä on ohjannut palikkaa siirtymään vasemmalle. Tarkoitus on havainnollistaa, miten luokat Piece, Tetromino ja Matrix tutkivat yhdessä, onko käyttäjän pyytämä siirto mahdollinen. Ongelman keskiössä on palikan metodi ```Piece.checkCollision```. Tämän metodin avulla voidaan tunnistaa muutkin palikan liikkumista rajoittavat tapaukset. Koodin toiminnan kannalta on mielenkiintoisempaa tarkastella sellaista tapausta, jossa syntyy törmäys. Tässä tarkastellaan siis sellaista tilannetta, jossa siirtyminen ei ole mahdollista. Palikan siirtymistä voivat rajoittaa joko pelialueen reunat tai matriisiin kertyneet palaset.
+
+![Sekvenssikaavio tapauksesta, jossa käyttäjä ohjaa palikkaa sivusuunnassa](sekvenssikaavio-palikan-siirto-sivusuunnassa.png)
+
