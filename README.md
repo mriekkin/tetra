@@ -13,6 +13,8 @@ Katso [aihemäärittely ja luokkakaavio](dokumentointi/aiheenKuvausJaRakenne.md)
 
 Päivitetty [pit-raportti](dokumentointi/pit/) ja [checkstyle-raportti](dokumentointi/checkstyle/) löytyvät omista kansioistaan.
 
+Logiikkapaketin luokille on kirjoitettu jo varsin kattava [Javadoc-dokumentaatio](javadoc/index.html).
+
 ## Käyttöliittymän luonnos
 
 Käyttöliittymästä on tehty osittainen alustava luonnos. Luonnos on tehty testausta ajatellen siten, että palikoida voi liikutella ja lukita matriisiin. Pelistä kuitenkin puuttuu vielä kokonaan varsinainen pelisilmukka, joka pyörittäisi peliä.
