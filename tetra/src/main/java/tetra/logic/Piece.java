@@ -42,8 +42,8 @@ public class Piece {
     }
 
     public boolean canRotate(boolean clockwise) {
-        Direction newDirection = orientation.rotate(clockwise);
-        return !testCollision(newDirection, x, y);
+        Direction newOrientation = orientation.rotate(clockwise);
+        return !testCollision(newOrientation, x, y);
     }
 
     public void rotate(boolean clockwise) {
