@@ -79,3 +79,7 @@ Ensimmäiseksi kuvataan tapaus, jossa käyttäjä ohjaa pelattavaa palikkaa sivu
 
 ![Sekvenssikaavio tapauksesta, jossa käyttäjä ohjaa palikkaa sivusuunnassa](sekvenssikaavio-palikan-siirto-sivusuunnassa.png)
 
+Sekvenssikaavio tapauksesta, jossa palikkaa pyöritetään myötäpäivään.
+
+![Sekvenssikaavio tapauksesta, jossa palikkaa pyöritetään myötäpäivään](sekvenssikaavio-palikan-pyoritys.png)
+
