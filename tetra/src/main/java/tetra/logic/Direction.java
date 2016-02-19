@@ -65,7 +65,7 @@ public enum Direction {
     }
 
     /**
-     * Returns the next available orientation when turning clockwise
+     * Returns the next available orientation when turning clockwise.
      *
      * @return next orientation when turning clockwise
      */
@@ -74,7 +74,7 @@ public enum Direction {
     }
 
     /**
-     * Returns the next available orientation when turning counterclockwise
+     * Returns the next available orientation when turning counterclockwise.
      *
      * @return next orientation when turning counterclockwise
      */

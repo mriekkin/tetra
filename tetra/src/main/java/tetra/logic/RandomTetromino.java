@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Produces a random stream of Tetrominoes with specific properties. The
- * operation of this class is analogous to pulling pieces from a bag without
- * replacement. Initially the bag contains 4 instances of each piece, and pieces
- * are pulled until the bag is empty. After that the bag is filled again, again
- * with 4 instances of each piece.
+ * A random stream of Tetrominoes with specific properties. The operation of
+ * this class is analogous to pulling pieces from a bag without replacement.
+ * Initially the bag contains 4 instances of each piece, and pieces are pulled
+ * until the bag is empty. After that the bag is filled again with 4 instances
+ * of each piece.
  * <p>
  * This appears to be a common way to model randomness in Tetris-derivatives.
  * The objective is to reduce long sequences of the same type, and to ensure
@@ -48,9 +48,9 @@ public class RandomTetromino {
     }
 
     /**
-     * Returns the next tetromino pulled at random from a bag of tetrominoes.
-     * The general contract of this class is that each piece will occur exactly
-     * 4 times in every 28 pieces
+     * Returns a tetromino pulled at random from a bag of tetrominoes. The
+     * general contract of this class is that each piece will occur exactly 4
+     * times in every 28 pieces
      *
      * @return a tetromino pulled at random from a bag of tetrominoes
      */

@@ -38,7 +38,7 @@ public class Matrix {
      * @param x x-coordinate of the element to return
      * @param y y-coordinate of the element to return
      * @return the block at the specified position, or null if the position is
-     * not occupied
+     * empty
      */
     public Block getBlock(int x, int y) {
         if (x < 0 || y < 0 || x >= cols || y >= rows) {
@@ -88,7 +88,7 @@ public class Matrix {
 
     /**
      * Returns true if there's a block in the specified (x,&nbsp;y) position;
-     * false otherwise. Returns null also if the x- or y-coordinate is out of
+     * false otherwise. Returns false also if the x- or y-coordinate is out of
      * range.
      *
      * @param x x-coordinate of the position to inspect
@@ -101,7 +101,7 @@ public class Matrix {
     }
 
     /**
-     * Returns the number of rows in this matrix, or height
+     * Returns the number of rows in this matrix, or height.
      *
      * @return the number of rows in this matrix, or height
      */
@@ -110,7 +110,7 @@ public class Matrix {
     }
 
     /**
-     * Returns the number of columns in this matrix, or width
+     * Returns the number of columns in this matrix, or width.
      *
      * @return the number of columns in this matrix, or width
      */

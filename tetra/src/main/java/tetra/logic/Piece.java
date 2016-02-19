@@ -1,7 +1,7 @@
 package tetra.logic;
 
 /**
- * Represents the active piece that the player can control.
+ * The active piece which the player can control.
  *
  * The active piece is not considered part of the matrix until it locks into
  * place.
