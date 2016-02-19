@@ -11,3 +11,4 @@ Pvm       | Vkp | Tunnit | Kuvaus
 11.2.2016 | to  | 3      | Käyttöliittymän koodauksen aloitus
 12.2.2016 | pe  | 5      | Alustava luonnos käyttöliittymästä, lisää yksikkötestejä
 18.2.2016 | to  | 4      | Sekvenssikaavion laatiminen
+19.2.2016 | pe  | 9      | Javadoc logiikkaluokille, toinen sekvenssikaavio, muutamia testejä
