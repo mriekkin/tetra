@@ -53,4 +53,56 @@ public class RandomTetrominoTest {
         }
     }
 
+    @Test
+    public void eachPieceOccursExactly4TimesInTheFirst28Pieces() {
+        int[] count = new int[7];
+        for (int i = 0; i < 28; i++) {
+            count[random.nextTetromino().ordinal()]++;
+        }
+
+        assertEquals(4, count[0]);
+        assertEquals(4, count[1]);
+        assertEquals(4, count[2]);
+        assertEquals(4, count[3]);
+        assertEquals(4, count[4]);
+        assertEquals(4, count[5]);
+        assertEquals(4, count[6]);
+    }
+
+    @Test
+    public void eachPieceOccursExactly4TimesInTheSecond28Pieces() {
+        for (int i = 0; i < 28; i++) {
+            random.nextTetromino();
+        }
+
+        int[] count = new int[7];
+        for (int i = 0; i < 28; i++) {
+            count[random.nextTetromino().ordinal()]++;
+        }
+
+        assertEquals(4, count[0]);
+        assertEquals(4, count[1]);
+        assertEquals(4, count[2]);
+        assertEquals(4, count[3]);
+        assertEquals(4, count[4]);
+        assertEquals(4, count[5]);
+        assertEquals(4, count[6]);
+    }
+
+    @Test
+    public void eachPieceOccursExactly40TimesInTheFirst280Pieces() {
+        int[] count = new int[7];
+        for (int i = 0; i < 280; i++) {
+            count[random.nextTetromino().ordinal()]++;
+        }
+
+        assertEquals(40, count[0]);
+        assertEquals(40, count[1]);
+        assertEquals(40, count[2]);
+        assertEquals(40, count[3]);
+        assertEquals(40, count[4]);
+        assertEquals(40, count[5]);
+        assertEquals(40, count[6]);
+    }
+
 }
