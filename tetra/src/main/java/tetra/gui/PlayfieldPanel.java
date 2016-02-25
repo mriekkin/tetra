@@ -89,7 +89,8 @@ public class PlayfieldPanel extends JPanel {
         int fillX = x * (spacing + blockSize) + spacing;
         int fillY = y * (spacing + blockSize) + spacing;
         g.setColor(block.getColorAwt());
-        g.fillRect(fillX, fillY, blockSize, blockSize);
+        //g.fillRect(fillX, fillY, blockSize, blockSize);
+        g.fill3DRect(fillX, fillY, blockSize, blockSize, true);
     }
 
 }

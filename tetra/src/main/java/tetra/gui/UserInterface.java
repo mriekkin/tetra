@@ -22,7 +22,10 @@ public class UserInterface implements Runnable {
     private final Piece piece;
     private PlayfieldPanel playfieldPanel;
 
-    private final int blockSize = 38;
+//    private final int blockSize = 38;
+//    private final int blockSpacing = 2;
+    
+    private final int blockSize = 26;
     private final int blockSpacing = 2;
 
     public UserInterface(Tetra game) {
