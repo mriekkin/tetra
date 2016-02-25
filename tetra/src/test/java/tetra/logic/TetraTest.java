@@ -10,12 +10,14 @@ public class TetraTest {
     Tetra tetra;
     Matrix matrix;
     Piece piece;
+    LineClearer lineClearer;
 
     @Before
     public void setUp() {
         matrix = new Matrix(20, 10);
         piece = new Piece(new RandomTetromino(new Random()), matrix);
-        tetra = new Tetra(matrix, piece);
+        lineClearer = new LineClearer(matrix);
+        tetra = new Tetra(matrix, piece, lineClearer);
     }
 
     @Test
