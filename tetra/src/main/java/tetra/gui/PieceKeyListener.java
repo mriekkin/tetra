@@ -31,10 +31,10 @@ public class PieceKeyListener implements KeyListener {
                 piece.move(Direction.RIGHT);
                 break;
             case KeyEvent.VK_DOWN:
-                piece.move(Direction.DOWN);
+                //piece.move(Direction.DOWN);
                 break;
             case KeyEvent.VK_UP:
-                piece.move(Direction.UP);
+                //piece.move(Direction.UP);
                 break;
             case KeyEvent.VK_Z:
                 piece.rotate(false);
@@ -43,7 +43,7 @@ public class PieceKeyListener implements KeyListener {
                 piece.rotate(true);
                 break;
             case KeyEvent.VK_SPACE:
-                piece.lockAndRespawn();
+                //piece.lockAndRespawn();
                 break;
         }
 

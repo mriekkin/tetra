@@ -31,6 +31,24 @@ public class Matrix {
     }
 
     /**
+     * Returns the number of rows in this matrix, or height.
+     *
+     * @return the number of rows in this matrix, or height
+     */
+    public int getRows() {
+        return rows;
+    }
+
+    /**
+     * Returns the number of columns in this matrix, or width.
+     *
+     * @return the number of columns in this matrix, or width
+     */
+    public int getCols() {
+        return cols;
+    }
+
+    /**
      * Returns the block at the specified (x,&nbsp;y) position in this matrix,
      * or null if the position is empty. Returns null also if the x- or
      * y-coordinate is out of range.
@@ -65,6 +83,20 @@ public class Matrix {
     }
 
     /**
+     * Returns true if there's a block in the specified (x,&nbsp;y) position;
+     * false otherwise. Returns false also if the x- or y-coordinate is out of
+     * range.
+     *
+     * @param x x-coordinate of the position to inspect
+     * @param y y-coordinate of the position to inspect
+     * @return true if there's a block in the specified position, false
+     * otherwise
+     */
+    public boolean isOccupied(int x, int y) {
+        return getBlock(x, y) != null;
+    }
+
+    /**
      * Disassembles the piece into independent blocks, and adds them to this
      * matrix. The blocks are added to the current position of the piece. After
      * this the piece will intersect with the matrix and should be respawned. It
@@ -84,38 +116,6 @@ public class Matrix {
                 }
             }
         }
-    }
-
-    /**
-     * Returns true if there's a block in the specified (x,&nbsp;y) position;
-     * false otherwise. Returns false also if the x- or y-coordinate is out of
-     * range.
-     *
-     * @param x x-coordinate of the position to inspect
-     * @param y y-coordinate of the position to inspect
-     * @return true if there's a block in the specified position, false
-     * otherwise
-     */
-    public boolean isOccupied(int x, int y) {
-        return getBlock(x, y) != null;
-    }
-
-    /**
-     * Returns the number of rows in this matrix, or height.
-     *
-     * @return the number of rows in this matrix, or height
-     */
-    public int getRows() {
-        return rows;
-    }
-
-    /**
-     * Returns the number of columns in this matrix, or width.
-     *
-     * @return the number of columns in this matrix, or width
-     */
-    public int getCols() {
-        return cols;
     }
 
 }

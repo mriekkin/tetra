@@ -35,6 +35,7 @@ public class UserInterface implements Runnable {
     public void run() {
         frame = new JFrame("Tetra");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //frame.setLocationRelativeTo(null);
 
         createComponents(frame.getContentPane());
 
@@ -75,6 +76,10 @@ public class UserInterface implements Runnable {
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public GamePanel getGamePanel() {
+        return gamePanel;
     }
 
 }
