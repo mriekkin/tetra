@@ -20,7 +20,7 @@ public class UserInterface implements Runnable {
     private final Tetra game;
     private final Matrix matrix;
     private final Piece piece;
-    private GamePanel gamePanel;
+    private PlayfieldPanel playfieldPanel;
 
     private final int blockSize = 38;
     private final int blockSpacing = 2;
@@ -54,16 +54,16 @@ public class UserInterface implements Runnable {
     private void createComponents(Container container) {
         container.setLayout(new BorderLayout());
 
-        gamePanel = new GamePanel(game, blockSize, blockSpacing);
-        container.add(gamePanel, BorderLayout.CENTER);
+        playfieldPanel = new PlayfieldPanel(game, blockSize, blockSpacing);
+        container.add(playfieldPanel, BorderLayout.CENTER);
 
-        frame.addKeyListener(new PieceKeyListener(piece, gamePanel));
+        frame.addKeyListener(new PieceKeyListener(game, piece, playfieldPanel));
     }
 
     private void setPanelSize() {
         int width = getRequiredWidth();
         int height = getRequiredHeight();
-        gamePanel.setPreferredSize(new Dimension(width, height));
+        playfieldPanel.setPreferredSize(new Dimension(width, height));
     }
 
     public int getRequiredWidth() {
@@ -78,8 +78,8 @@ public class UserInterface implements Runnable {
         return frame;
     }
 
-    public GamePanel getGamePanel() {
-        return gamePanel;
+    public PlayfieldPanel getGamePanel() {
+        return playfieldPanel;
     }
 
 }

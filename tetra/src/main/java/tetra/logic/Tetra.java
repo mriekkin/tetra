@@ -13,6 +13,7 @@ public class Tetra implements ActionListener {
     private Piece piece;
     private LineClearer lineClearer;
     private Component component;
+    private boolean gameOver;
 
     /**
      * Class constructor which specifies the matrix and piece to use for this
@@ -27,6 +28,7 @@ public class Tetra implements ActionListener {
         this.piece = piece;
         this.lineClearer = lineClearer;
         this.component = null;
+        this.gameOver = false;
     }
 
     /**
@@ -57,10 +59,8 @@ public class Tetra implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (piece.canMove(Direction.DOWN)) {
-            piece.move(Direction.DOWN);
-        } else {
-            respawn();
+        if (!gameOver) {
+            updateGame();
         }
 
         if (component != null) {
@@ -68,13 +68,35 @@ public class Tetra implements ActionListener {
         }
     }
 
+    private void updateGame() {
+        if (piece.canMove(Direction.DOWN)) {
+            piece.move(Direction.DOWN);
+        } else {
+            respawn();
+        }
+    }
+
     private void respawn() {
         int yMin = piece.getY();
         int yMax = piece.getY() + piece.getHeight() - 1;
 
-        piece.lockAndRespawn();
+        boolean canContinue = piece.lockAndRespawn();
 
-        lineClearer.clearCompleteLinesAndMoveRowsAbove(yMin, yMax);
+        if (!canContinue) {
+            gameOver();
+            return;
+        }
+
+        lineClearer.clearCompleteLinesAndShift(yMin, yMax);
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    private void gameOver() {
+        gameOver = true;
+        System.out.println("Game over!");
     }
 
 }

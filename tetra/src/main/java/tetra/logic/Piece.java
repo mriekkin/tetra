@@ -83,10 +83,12 @@ public class Piece {
         return x < 0 || x >= matrix.getCols() || y < 0 || y >= matrix.getRows();
     }
 
-    public void lockAndRespawn() {
+    public boolean lockAndRespawn() {
         matrix.addPiece(this);
         setNextRandomTetromino();
         moveToInitialPosition();
+        
+        return !testCollision(orientation, x, y);
     }
 
     private void setNextRandomTetromino() {

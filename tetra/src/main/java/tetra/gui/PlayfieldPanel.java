@@ -11,7 +11,7 @@ import tetra.logic.Tetra;
 /**
  * Draws the game view
  */
-public class GamePanel extends JPanel {
+public class PlayfieldPanel extends JPanel {
 
     private final int spacing;
     private final int blockSize;
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
     private Matrix matrix;
     private Piece piece;
 
-    public GamePanel(Tetra game, int blockSize, int spaceBetweenBlocks) {
+    public PlayfieldPanel(Tetra game, int blockSize, int spaceBetweenBlocks) {
         this.game = game;
         this.matrix = game.getMatrix();
         this.piece = game.getPiece();

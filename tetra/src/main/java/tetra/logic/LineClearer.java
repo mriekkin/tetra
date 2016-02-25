@@ -8,7 +8,7 @@ public class LineClearer {
         this.matrix = matrix;
     }
     
-    public void clearCompleteLinesAndMoveRowsAbove(int yMin, int yMax) {
+    public void clearCompleteLinesAndShift(int yMin, int yMax) {
         int first = findFirstCompleteLine(yMin, yMax);
         int last = findLastCompleteLine(yMin, yMax);
 
