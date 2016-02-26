@@ -7,15 +7,20 @@ public class LineClearer {
     public LineClearer(Matrix matrix) {
         this.matrix = matrix;
     }
-    
-    public void clearCompleteLinesAndShift(int yMin, int yMax) {
+
+    public int clearCompleteLinesAndShift(int yMin, int yMax) {
         int first = findFirstCompleteLine(yMin, yMax);
         int last = findLastCompleteLine(yMin, yMax);
 
-        if (first != -1) {
-            clearLines(first, last);
-            moveRowsDown(first - 1, last - first + 1);
+        if (first == -1) {
+            return 0;
         }
+
+        int linesCleared = last - first + 1;
+        clearLines(first, last);
+        shiftRowsDown(first - 1, linesCleared);
+
+        return linesCleared;
     }
 
     public boolean isCompleteLine(int y) {
@@ -68,7 +73,7 @@ public class LineClearer {
         }
     }
 
-    public void moveRowsDown(int lastRowToMove, int howMuch) {
+    public void shiftRowsDown(int lastRowToMove, int howMuch) {
         if (lastRowToMove < 0 || lastRowToMove >= matrix.getRows() - 1) {
             return;
         }

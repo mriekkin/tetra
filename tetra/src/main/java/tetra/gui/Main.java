@@ -2,7 +2,6 @@ package tetra.gui;
 
 import java.util.Random;
 import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 import tetra.logic.LineClearer;
 import tetra.logic.Matrix;
 import tetra.logic.Piece;
@@ -33,9 +32,8 @@ public class Main {
         }
 
         game.setComponent(gui.getGamePanel());
-
-        Timer timer = new Timer(250, game);
-        timer.start();
+        
+        game.startGame();
     }
 
 }

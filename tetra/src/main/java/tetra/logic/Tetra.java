@@ -3,6 +3,7 @@ package tetra.logic;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  * Contains the principal game logic loop. This class is a work-in-progress.
@@ -12,8 +13,11 @@ public class Tetra implements ActionListener {
     private Matrix matrix;
     private Piece piece;
     private LineClearer lineClearer;
-    private Component component;
+    private int clearedLines;
     private boolean gameOver;
+    
+    private Timer timer;
+    private Component component;
 
     /**
      * Class constructor which specifies the matrix and piece to use for this
@@ -27,8 +31,10 @@ public class Tetra implements ActionListener {
         this.matrix = matrix;
         this.piece = piece;
         this.lineClearer = lineClearer;
-        this.component = null;
+        clearedLines = 0;
         this.gameOver = false;
+        this.timer = new Timer(computeTimerDelay(0), this);
+        this.component = null;
     }
 
     /**
@@ -55,6 +61,14 @@ public class Tetra implements ActionListener {
 
     public void setComponent(Component component) {
         this.component = component;
+    }
+    
+    public void startGame() {
+        timer.start();
+    }
+    
+    private int computeTimerDelay(int clearedLinesTotal) {
+        return Math.max(100, 600 - (5 * clearedLinesTotal));
     }
 
     @Override
@@ -101,7 +115,17 @@ public class Tetra implements ActionListener {
             return;
         }
 
-        lineClearer.clearCompleteLinesAndShift(yMin, yMax);
+        clearCompleteLines(yMin, yMax);
+    }
+    
+    private void clearCompleteLines(int yMin, int yMax) {
+        int n = lineClearer.clearCompleteLinesAndShift(yMin, yMax);
+        
+        if (n > 0) {
+            clearedLines += n;
+            timer.setDelay(computeTimerDelay(clearedLines));
+            //System.out.println(timer.getDelay());
+        }
     }
 
     public boolean isGameOver() {
