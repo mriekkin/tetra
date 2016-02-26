@@ -22,9 +22,6 @@ public class UserInterface implements Runnable {
     private final Piece piece;
     private PlayfieldPanel playfieldPanel;
 
-//    private final int blockSize = 38;
-//    private final int blockSpacing = 2;
-    
     private final int blockSize = 26;
     private final int blockSpacing = 2;
 
@@ -37,21 +34,16 @@ public class UserInterface implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Tetra");
+        frame.setTitle("Tetra");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //frame.setLocationRelativeTo(null);
 
         createComponents(frame.getContentPane());
 
         setPanelSize();
 
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-        System.out.println(getRequiredWidth());
-        System.out.println(getRequiredHeight());
-        System.out.println("");
-        System.out.println(frame.getWidth());
-        System.out.println(frame.getHeight());
     }
 
     private void createComponents(Container container) {

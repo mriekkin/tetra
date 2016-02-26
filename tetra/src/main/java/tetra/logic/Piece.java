@@ -133,17 +133,4 @@ public class Piece {
         this.orientation = direction;
     }
 
-    public boolean canMoveTo(int newX, int newY) {
-        return !testCollision(orientation, newX, newY);
-    }
-
-    public void moveTo(int newX, int newY) {
-        if (!canMoveTo(newX, newY)) {
-            return;
-        }
-
-        x = newX;
-        y = newY;
-    }
-
 }
