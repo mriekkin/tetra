@@ -12,6 +12,7 @@ public class Tetra implements ActionListener {
 
     private Matrix matrix;
     private Piece piece;
+    private RandomTetromino random;
     private int clearedLines;
     private boolean gameOver;
 
@@ -24,10 +25,12 @@ public class Tetra implements ActionListener {
      *
      * @param matrix matrix for this game
      * @param piece piece for this game
+     * @param random random generator for this game
      */
-    public Tetra(Matrix matrix, Piece piece) {
+    public Tetra(Matrix matrix, Piece piece, RandomTetromino random) {
         this.matrix = matrix;
         this.piece = piece;
+        this.random = random;
         clearedLines = 0;
         this.gameOver = false;
         this.timer = new Timer(computeTimerDelay(0), this);
@@ -72,7 +75,7 @@ public class Tetra implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         update();
     }
-    
+
     private void update() {
         updateGameLogic();
 
@@ -119,7 +122,9 @@ public class Tetra implements ActionListener {
         int yMin = piece.getY();
         int yMax = piece.getY() + piece.getHeight() - 1;
 
-        boolean canContinue = piece.lockAndRespawn();
+        piece.lock();
+        Tetromino next = random.nextTetromino();
+        boolean canContinue = piece.respawn(next);
 
         if (!canContinue) {
             gameOver();

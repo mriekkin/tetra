@@ -17,8 +17,7 @@ public class MatrixTest {
     }
 
     private Piece createPiece(Tetromino first) {
-        RandomIntStub random = new RandomIntStub(new int[]{first.ordinal()});
-        return new Piece(new RandomTetromino(random), matrix);
+        return new Piece(first, matrix);
     }
 
     @Test

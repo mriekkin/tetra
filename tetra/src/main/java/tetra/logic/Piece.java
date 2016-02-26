@@ -15,9 +15,8 @@ public class Piece {
     private int x;
     private int y;
 
-    public Piece(RandomTetromino random, Matrix matrix) {
-        this.random = random;
-        this.tetromino = random.nextTetromino();
+    public Piece(Tetromino tetromino, Matrix matrix) {
+        this.tetromino = tetromino;
         orientation = Direction.UP;
 
         this.matrix = matrix;
@@ -79,30 +78,25 @@ public class Piece {
         return false;
     }
 
-    public boolean lockAndRespawn() {
+    public void lock() {
         matrix.addPiece(this);
-        setNextRandomTetromino();
+    }
+
+    public boolean respawn(Tetromino next) {
+        setTetromino(next);
         moveToInitialPosition();
 
         return !testCollision(orientation, x, y);
     }
 
-    private void setNextRandomTetromino() {
-        tetromino = random.nextTetromino();
+    private void setTetromino(Tetromino tetromino) {
+        this.tetromino = tetromino;
         orientation = Direction.UP;
     }
 
     private void moveToInitialPosition() {
         x = (matrix.getCols() - tetromino.width) / 2;
         y = 0;
-    }
-
-    public Tetromino getTetromino() {
-        return tetromino;
-    }
-
-    public void setTetromino(Tetromino tetromino) {
-        this.tetromino = tetromino;
     }
 
     public int getX() {
@@ -121,12 +115,12 @@ public class Piece {
         return tetromino.height;
     }
 
-    public Direction getOrientation() {
-        return orientation;
+    public Tetromino getTetromino() {
+        return tetromino;
     }
 
-    public void setOrientation(Direction direction) {
-        this.orientation = direction;
+    public Direction getOrientation() {
+        return orientation;
     }
 
 }

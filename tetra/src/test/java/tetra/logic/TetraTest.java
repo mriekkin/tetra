@@ -11,13 +11,17 @@ public class TetraTest {
     Matrix matrix;
     Piece piece;
     LineClearer lineClearer;
+    RandomTetromino random;
 
     @Before
     public void setUp() {
+        random = new RandomTetromino(new Random());
+        Tetromino first = random.nextTetromino();
+
         matrix = new Matrix(20, 10);
-        piece = new Piece(new RandomTetromino(new Random()), matrix);
+        piece = new Piece(first, matrix);
         lineClearer = new LineClearer(matrix);
-        tetra = new Tetra(matrix, piece, lineClearer);
+        tetra = new Tetra(matrix, piece, random);
     }
 
     @Test
