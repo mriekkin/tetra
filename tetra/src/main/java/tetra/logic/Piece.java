@@ -66,7 +66,7 @@ public class Piece {
                 boolean isOccupied1 = tetromino.isOccupied(newOrientation, dx, dy);
                 boolean isOccupied2 = matrix.isOccupied(newX + dx, newY + dy);
 
-                if (isOccupied1 && isOutOfBounds(newX + dx, newY + dy)) {
+                if (isOccupied1 && matrix.isOutOfBounds(newX + dx, newY + dy)) {
                     return true;
                 }
 
@@ -77,10 +77,6 @@ public class Piece {
         }
 
         return false;
-    }
-
-    private boolean isOutOfBounds(int x, int y) {
-        return x < 0 || x >= matrix.getCols() || y < 0 || y >= matrix.getRows();
     }
 
     public boolean lockAndRespawn() {

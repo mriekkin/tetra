@@ -12,7 +12,6 @@ public class Tetra implements ActionListener {
 
     private Matrix matrix;
     private Piece piece;
-    private LineClearer lineClearer;
     private int clearedLines;
     private boolean gameOver;
 
@@ -25,12 +24,10 @@ public class Tetra implements ActionListener {
      *
      * @param matrix matrix for this game
      * @param piece piece for this game
-     * @param lineClearer line clear analyzer for this game
      */
-    public Tetra(Matrix matrix, Piece piece, LineClearer lineClearer) {
+    public Tetra(Matrix matrix, Piece piece) {
         this.matrix = matrix;
         this.piece = piece;
-        this.lineClearer = lineClearer;
         clearedLines = 0;
         this.gameOver = false;
         this.timer = new Timer(computeTimerDelay(0), this);
@@ -133,7 +130,7 @@ public class Tetra implements ActionListener {
     }
 
     private void clearCompleteLines(int yMin, int yMax) {
-        int n = lineClearer.clearCompleteLinesAndShift(yMin, yMax);
+        int n = matrix.clearCompleteLines(yMin, yMax);
 
         if (n > 0) {
             clearedLines += n;

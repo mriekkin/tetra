@@ -17,6 +17,7 @@ public class Matrix {
     private Block[][] grid;
     private final int rows;
     private final int cols;
+    private LineClearer lineClearer;
 
     /**
      * Class constructor which specifies the size of this matrix.
@@ -28,6 +29,7 @@ public class Matrix {
         this.grid = new Block[rows][cols];
         this.rows = rows;
         this.cols = cols;
+        this.lineClearer = new LineClearer(this);
     }
 
     /**
@@ -96,6 +98,10 @@ public class Matrix {
         return getBlock(x, y) != null;
     }
 
+    public boolean isOutOfBounds(int x, int y) {
+        return x < 0 || x >= cols || y < 0 || y >= rows;
+    }
+
     /**
      * Disassembles the piece into independent blocks, and adds them to this
      * matrix. The blocks are added to the current position of the piece. After
@@ -116,6 +122,10 @@ public class Matrix {
                 }
             }
         }
+    }
+
+    public int clearCompleteLines(int yMin, int yMax) {
+        return lineClearer.clearCompleteLinesAndShift(yMin, yMax);
     }
 
 }

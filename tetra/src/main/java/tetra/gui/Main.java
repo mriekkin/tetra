@@ -2,14 +2,13 @@ package tetra.gui;
 
 import java.util.Random;
 import javax.swing.SwingUtilities;
-import tetra.logic.LineClearer;
 import tetra.logic.Matrix;
 import tetra.logic.Piece;
 import tetra.logic.RandomTetromino;
 import tetra.logic.Tetra;
 
 /**
- * Program entry point: contains the main()
+ * Program entry point.
  */
 public class Main {
 
@@ -17,8 +16,7 @@ public class Main {
         Matrix matrix = new Matrix(20, 10);
         RandomTetromino random = new RandomTetromino(new Random());
         Piece piece = new Piece(random, matrix);
-        LineClearer lineClearer = new LineClearer(matrix);
-        Tetra game = new Tetra(matrix, piece, lineClearer);
+        Tetra game = new Tetra(matrix, piece);
         UserInterface gui = new UserInterface(game);
 
         SwingUtilities.invokeLater(gui);

@@ -9,7 +9,7 @@ import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
 /**
- * Draws the game view
+ * Draws the game view.
  */
 public class PlayfieldPanel extends JPanel {
 
