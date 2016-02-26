@@ -59,9 +59,7 @@ public class Tetra implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!gameOver) {
-            updateGame();
-        }
+        updateGame();
 
         if (component != null) {
             component.repaint();
@@ -69,11 +67,27 @@ public class Tetra implements ActionListener {
     }
 
     private void updateGame() {
+        if (gameOver) {
+            return;
+        }
+
         if (piece.canMove(Direction.DOWN)) {
             piece.move(Direction.DOWN);
         } else {
             respawn();
         }
+    }
+
+    public void hardDrop() {
+        if (gameOver) {
+            return;
+        }
+
+        while (piece.canMove(Direction.DOWN)) {
+            piece.move(Direction.DOWN);
+        }
+
+        respawn();
     }
 
     private void respawn() {

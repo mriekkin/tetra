@@ -41,16 +41,14 @@ public class PieceKeyListener implements KeyListener {
                 //piece.move(Direction.DOWN);
                 break;
             case KeyEvent.VK_UP:
-                //piece.move(Direction.UP);
+            case KeyEvent.VK_X:
+                piece.rotate(true);
                 break;
             case KeyEvent.VK_Z:
                 piece.rotate(false);
                 break;
-            case KeyEvent.VK_X:
-                piece.rotate(true);
-                break;
             case KeyEvent.VK_SPACE:
-                //piece.lockAndRespawn();
+                game.hardDrop();
                 break;
         }
 

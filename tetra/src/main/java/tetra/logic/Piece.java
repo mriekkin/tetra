@@ -87,7 +87,7 @@ public class Piece {
         matrix.addPiece(this);
         setNextRandomTetromino();
         moveToInitialPosition();
-        
+
         return !testCollision(orientation, x, y);
     }
 
