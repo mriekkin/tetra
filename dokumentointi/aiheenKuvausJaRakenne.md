@@ -71,7 +71,17 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 
 ## Määrittelyvaiheen luokkakaavio
 
-![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio-v2.png)
+![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio-v2-plain.png)
+
+## Päivitetty luokkakaavio
+
+Pelin logiikasta vastaava pääluokka on nimeltään Tetra. Tämän luokan vastuu on päivittää pelisilmukkaa ajastimen avulla. Pääluokka kytkee ohjelman eri osat toisiinsa, muuta delegoi suurimman osan työstä muille luokille. Pääluokka käyttää apunaan ensisijaisesti kahta pelin käsitteistössä keskeistä luokkaa: luokkia Piece ja Matrix. Ensimmäinen, Piece, kuvaa pelaajan sillä hetkellä hallitsemaa palikkaa. Jälkimmäinen, Matrix, kuvaa palasista ja tyhjistä ruuduista koostuvaa pelialuetta. Näiden kahden lisäksi pääluokka käyttää vielä kolmatta luokkaa RandomTetromino satunnaisuuden mallintamiseen.
+
+Pelin pelialue on matriisi, joka koostuu tyhjistä ruuduista ja paikoilleen lukittuneista palasista. Pelialuetta kuvaa luokka Matrix. Tämän matriisiluokan vastuu on kuvata pelialue ja sen sisältö. Toisin sanoen matriisi tarjoaa metodit sen sisällön tarkasteluun ja muokkaamiseen. Matriisin sisällön päivittämiseen liittyvä logiikka sen sijaan kuuluu muiden luokkien harteille. Esimerkiksi pelin kannalta varsin olennainen toiminto, täysien rivien tunnistaminen ja tyhjentäminen, on eriytetty erilliseen luokkaan LineClearer.
+
+Tetristä pelataan tetromino-palikoilla, joita on olemassa 7 erilaista tyyppiä. Ohjelmassa nämä tyypit määritellään lueteltuna tyyppinä Tetromino. Yksi Tetromino-luokan ilmentymä esittää yhden tyyppisen palikan muodon ja sen sallitut kierrot. Pelaajan ohjaaman palikan esittämiseen tarvitaan kolme asiaa: tetromino-palikan tyyppi, sen sijainti matriisissa, ja orientaatio. Näistä viimeistä, eli orientaatiota, esittää lueteltu tyyppi Direction. Direction määrittelee pelissä sallitut liikkumissuunnat ja kierrot näiden välillä.
+
+![Luokkakaavio](luokkakaavio-v2-plain.png)
 
 ## Sekvenssikaaviot
 
