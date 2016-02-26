@@ -15,7 +15,7 @@ public class Tetra implements ActionListener {
     private LineClearer lineClearer;
     private int clearedLines;
     private boolean gameOver;
-    
+
     private Timer timer;
     private Component component;
 
@@ -62,25 +62,29 @@ public class Tetra implements ActionListener {
     public void setComponent(Component component) {
         this.component = component;
     }
-    
+
     public void startGame() {
         timer.start();
     }
-    
+
     private int computeTimerDelay(int clearedLinesTotal) {
         return Math.max(100, 600 - (5 * clearedLinesTotal));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        updateGame();
+        update();
+    }
+    
+    private void update() {
+        updateGameLogic();
 
         if (component != null) {
             component.repaint();
         }
     }
 
-    private void updateGame() {
+    private void updateGameLogic() {
         if (gameOver) {
             return;
         }
@@ -104,6 +108,16 @@ public class Tetra implements ActionListener {
         respawn();
     }
 
+    public void startSoftDrop() {
+        timer.setDelay(40);
+        update();
+    }
+
+    public void endSoftDrop() {
+        timer.setDelay(computeTimerDelay(clearedLines));
+        //update();
+    }
+
     private void respawn() {
         int yMin = piece.getY();
         int yMax = piece.getY() + piece.getHeight() - 1;
@@ -117,10 +131,10 @@ public class Tetra implements ActionListener {
 
         clearCompleteLines(yMin, yMax);
     }
-    
+
     private void clearCompleteLines(int yMin, int yMax) {
         int n = lineClearer.clearCompleteLinesAndShift(yMin, yMax);
-        
+
         if (n > 0) {
             clearedLines += n;
             timer.setDelay(computeTimerDelay(clearedLines));

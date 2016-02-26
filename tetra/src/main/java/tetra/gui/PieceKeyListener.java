@@ -17,11 +17,13 @@ public class PieceKeyListener implements KeyListener {
     private Tetra game;
     private Piece piece;
     private Component component;
+    private boolean isSoftDropActive;
 
     public PieceKeyListener(Tetra game, Piece piece, Component component) {
         this.game = game;
         this.piece = piece;
         this.component = component;
+        this.isSoftDropActive = false;
     }
 
     @Override
@@ -38,7 +40,10 @@ public class PieceKeyListener implements KeyListener {
                 piece.move(Direction.RIGHT);
                 break;
             case KeyEvent.VK_DOWN:
-                //piece.move(Direction.DOWN);
+//                if (!isSoftDropActive) {
+//                    game.startSoftDrop();
+//                    isSoftDropActive = true;
+//                }
                 break;
             case KeyEvent.VK_UP:
             case KeyEvent.VK_X:
@@ -61,6 +66,18 @@ public class PieceKeyListener implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if (game.isGameOver()) {
+            return;
+        }
+
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_DOWN:
+//                if (isSoftDropActive) {
+//                    game.endSoftDrop();
+//                    isSoftDropActive = false;
+//                }
+                break;
+        }
     }
 
 }
