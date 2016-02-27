@@ -15,10 +15,4 @@ Päivitetty [pit-raportti](dokumentointi/pit/index.html) ja [checkstyle-raportti
 
 Logiikkapaketin luokille on kirjoitettu jo varsin kattava [Javadoc-dokumentaatio](javadoc/index.html).
 
-## Käyttöliittymän luonnos
-
-Käyttöliittymästä on tehty osittainen alustava luonnos. Luonnos on tehty testausta ajatellen siten, että palikoida voi liikutella ja lukita matriisiin. Pelistä kuitenkin puuttuu vielä kokonaan varsinainen pelisilmukka, joka pyörittäisi peliä.
-
-Nykyistä palikkaa liikutellaan nuolinäppäimillä ja pyöritetään näppäimillä Z ja X. Välilyönti lukitsee nykyisen palikan paikoilleen ja arpoo uuden. Mikään ei estä lukitsemasta palikkaa siten, että se jää roikkumaan ilmaan.
-
-![Kuvakaappaus](dokumentointi/kuvakaappaus.png)
+[Käyttöohje](dokumentointi/käyttöohjeet).
