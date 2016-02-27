@@ -12,3 +12,5 @@ Pvm       | Vkp | Tunnit | Kuvaus
 12.2.2016 | pe  | 5      | Alustava luonnos käyttöliittymästä, lisää yksikkötestejä
 18.2.2016 | to  | 4      | Sekvenssikaavion laatiminen
 19.2.2016 | pe  | 9      | Javadoc logiikkaluokille, toinen sekvenssikaavio, muutamia testejä
+25.2.2016 | to  |        | Ensimmäinen pelattava versio
+26.2.2016 | pe  |        | Uusia ominaisuuksia, rakennekuvaus ja luokkakaavio, refaktorointia
