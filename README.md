@@ -15,4 +15,4 @@ Päivitetty [pit-raportti](dokumentointi/pit/index.html) ja [checkstyle-raportti
 
 Logiikkapaketin luokille on kirjoitettu jo varsin kattava [Javadoc-dokumentaatio](javadoc/index.html).
 
-[Käyttöohje](dokumentointi/käyttöohjeet).
+[Käyttöohje](dokumentointi/käyttöohjeet.md).
