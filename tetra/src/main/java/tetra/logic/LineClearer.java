@@ -1,5 +1,8 @@
 package tetra.logic;
 
+/**
+ * Finds and clears complete lines in a matrix.
+ */
 public class LineClearer {
 
     private Matrix matrix;
