@@ -13,12 +13,18 @@ public class TetraTest {
     Piece piece;
     LineClearer lineClearer;
     RandomTetromino random;
+    Tetromino[] sequence;
 
     @Before
     public void setUp() {
-        int[] integers = new int[]{0, 1, 2, 3, 4, 5, 6};
-        random = new RandomTetromino(new RandomIntStub(integers));
-        matrix = new Matrix(22, 10);
+        sequence = new Tetromino[]{Tetromino.I, Tetromino.J, Tetromino.L};
+        setUpGame(10, 22, sequence);
+    }
+
+    private void setUpGame(int matrixWidth, int matrixHeight, Tetromino[] seq) {
+        sequence = seq;
+        random = new RandomTetrominoStub(seq);
+        matrix = new Matrix(matrixHeight, matrixWidth);
         piece = new Piece(random.nextTetromino(), matrix);
         lineClearer = new LineClearer(matrix);
         game = new Tetra(matrix, piece, random);
@@ -38,7 +44,7 @@ public class TetraTest {
     public void constructorSetsRandomCorrectly() {
         assertTrue(game.getRandom() == random);
     }
-    
+
     @Test
     public void constructorSetsFirstTetrominoCorrectly() {
         assertEquals(Tetromino.I, game.getPiece().getTetromino());
@@ -49,6 +55,18 @@ public class TetraTest {
         Component component = new JPanel();
         game.setComponent(component);
         assertTrue(component == game.getComponent());
+    }
+
+    @Test
+    public void linesClearedCounterStartsAtZero() {
+        assertEquals(0, game.getClearedLines());
+    }
+
+    @Test
+    public void timerDelayStartsAt600() {
+        assertEquals(600, game.getTimerDelay());
+        game.start();
+        assertEquals(600, game.getTimerDelay());
     }
 
 }

@@ -37,4 +37,26 @@ public class MatrixHelper {
         return true;
     }
 
+    public static String printGameStatus(Matrix matrix, Piece piece) {
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y < matrix.getRows(); y++) {
+            sb.append(y);
+            sb.append(": ");
+            for (int x = 0; x < matrix.getCols(); x++) {
+                char block = ' ';
+
+                if (piece.getBlock(x, y) != null) {
+                    block = 'o';
+                } else if (matrix.isOccupied(x, y)) {
+                    block = 'x';
+                }
+
+                sb.append(block);
+            }
+            sb.append('\n');
+        }
+
+        return sb.toString();
+    }
+
 }

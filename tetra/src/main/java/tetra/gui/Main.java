@@ -33,7 +33,7 @@ public class Main {
 
         game.setComponent(gui.getGamePanel());
         
-        game.startGame();
+        game.start();
     }
 
 }
