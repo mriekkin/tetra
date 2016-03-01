@@ -36,6 +36,16 @@ public class LineClearer {
         return true;
     }
 
+    public boolean isEmptyLine(int y) {
+        for (int x = 0; x < matrix.getCols(); x++) {
+            if (matrix.isOccupied(x, y)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public int findFirstCompleteLine(int yMin, int yMax) {
         if (yMin > yMax) {
             return -1;
@@ -77,11 +87,11 @@ public class LineClearer {
     }
 
     public void shiftRowsDown(int lastRowToMove, int howMuch) {
-        if (lastRowToMove < 0 || lastRowToMove >= matrix.getRows() - 1) {
+        if (lastRowToMove < 0 || lastRowToMove >= matrix.getRows()) {
             return;
         }
 
-        if (howMuch <= 0 || lastRowToMove + howMuch > matrix.getRows() - 1) {
+        if (howMuch <= 0 || lastRowToMove + howMuch >= matrix.getRows()) {
             return;
         }
 
@@ -90,6 +100,8 @@ public class LineClearer {
                 matrix.setBlock(x, y + howMuch, matrix.getBlock(x, y));
             }
         }
+
+        clearLines(0, howMuch - 1);
     }
 
 }

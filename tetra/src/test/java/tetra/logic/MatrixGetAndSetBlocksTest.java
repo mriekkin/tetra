@@ -15,14 +15,6 @@ public class MatrixGetAndSetBlocksTest {
         block = new Block(1010);
     }
 
-    private void fillAllCells() {
-        for (int y = 0; y < matrix.getRows(); y++) {
-            for (int x = 0; x < matrix.getCols(); x++) {
-                matrix.setBlock(x, y, block);
-            }
-        }
-    }
-
     @Test
     public void getBlockReturnsNullForNegativeCoordinates() {
         assertNull(matrix.getBlock(-1, -1));
@@ -32,7 +24,7 @@ public class MatrixGetAndSetBlocksTest {
 
     @Test
     public void getBlockReturnsNullForNegativeCoordinatesEvenForAFullMatrix() {
-        fillAllCells();
+        matrix = MatrixHelper.getFullMatrix(10, 20, block);
         assertNull(matrix.getBlock(-1, -1));
         assertNull(matrix.getBlock(-1, 0));
         assertNull(matrix.getBlock(0, -1));
@@ -48,7 +40,7 @@ public class MatrixGetAndSetBlocksTest {
 
     @Test
     public void getBlockReturnsNullForTooLargeCoordinatesEvenForAFullMatrix() {
-        fillAllCells();
+        matrix = MatrixHelper.getFullMatrix(10, 20, block);
         assertNull(matrix.getBlock(matrix.getCols(), matrix.getRows()));
         assertNull(matrix.getBlock(matrix.getCols(), 0));
         assertNull(matrix.getBlock(0, matrix.getRows()));
@@ -87,7 +79,7 @@ public class MatrixGetAndSetBlocksTest {
 
     @Test
     public void setBlockIsAbleToFillAllCells() {
-        fillAllCells();
+        matrix = MatrixHelper.getFullMatrix(10, 20, block);
         for (int y = 0; y < matrix.getRows(); y++) {
             for (int x = 0; x < matrix.getCols(); x++) {
                 assertEquals(block, matrix.getBlock(x, y));
