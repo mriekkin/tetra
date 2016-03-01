@@ -8,7 +8,6 @@ package tetra.logic;
  */
 public class Piece {
 
-    private RandomTetromino random;
     private Tetromino tetromino;
     private Direction orientation;
     private Matrix matrix;

@@ -14,16 +14,16 @@ public class LineClearer {
     public int clearCompleteLinesAndShift(int yMin, int yMax) {
         int first = findFirstCompleteLine(yMin, yMax);
         int last = findLastCompleteLine(yMin, yMax);
+        int count = last - first + 1;
 
         if (first == -1) {
             return 0;
         }
 
-        int linesCleared = last - first + 1;
         clearLines(first, last);
-        shiftRowsDown(first - 1, linesCleared);
+        shiftRowsDown(first - 1, count);
 
-        return linesCleared;
+        return count;
     }
 
     public boolean isCompleteLine(int y) {
