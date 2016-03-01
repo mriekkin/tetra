@@ -54,6 +54,10 @@ public class Tetra implements ActionListener {
     public Piece getPiece() {
         return piece;
     }
+    
+    public RandomTetromino getRandom() {
+        return random;
+    }
 
     public Component getComponent() {
         return component;
@@ -65,6 +69,10 @@ public class Tetra implements ActionListener {
 
     public void startGame() {
         timer.start();
+    }
+    
+    public int getTimerDelay() {
+        return timer.getDelay();
     }
 
     private int computeTimerDelay(int clearedLinesTotal) {

@@ -1,13 +1,14 @@
 package tetra.logic;
 
-import java.util.Random;
+import java.awt.Component;
+import javax.swing.JPanel;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TetraTest {
 
-    Tetra tetra;
+    Tetra game;
     Matrix matrix;
     Piece piece;
     LineClearer lineClearer;
@@ -15,23 +16,39 @@ public class TetraTest {
 
     @Before
     public void setUp() {
-        random = new RandomTetromino(new Random());
-        Tetromino first = random.nextTetromino();
-
-        matrix = new Matrix(20, 10);
-        piece = new Piece(first, matrix);
+        int[] integers = new int[]{0, 1, 2, 3, 4, 5, 6};
+        random = new RandomTetromino(new RandomIntStub(integers));
+        matrix = new Matrix(22, 10);
+        piece = new Piece(random.nextTetromino(), matrix);
         lineClearer = new LineClearer(matrix);
-        tetra = new Tetra(matrix, piece, random);
+        game = new Tetra(matrix, piece, random);
     }
 
     @Test
     public void constructorSetsMatrixCorrectly() {
-        assertTrue(tetra.getMatrix() == matrix);
+        assertTrue(game.getMatrix() == matrix);
     }
 
     @Test
     public void constructorSetsPieceCorrectly() {
-        assertTrue(tetra.getPiece() == piece);
+        assertTrue(game.getPiece() == piece);
+    }
+
+    @Test
+    public void constructorSetsRandomCorrectly() {
+        assertTrue(game.getRandom() == random);
+    }
+    
+    @Test
+    public void constructorSetsFirstTetrominoCorrectly() {
+        assertEquals(Tetromino.I, game.getPiece().getTetromino());
+    }
+
+    @Test
+    public void setComponentWorks() {
+        Component component = new JPanel();
+        game.setComponent(component);
+        assertTrue(component == game.getComponent());
     }
 
 }
