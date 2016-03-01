@@ -79,7 +79,6 @@ public class TetraUpdateGameAfterLineClearsTest {
     @Test
     public void timerDelayIncreases5msWhenOneLineIsCleared() {
         setUpGameForClearingOneLine();
-        game.start();
         assertEquals(600, game.getTimerDelay());
         game.hardDrop();
         assertEquals(600 - 5, game.getTimerDelay());
@@ -88,7 +87,6 @@ public class TetraUpdateGameAfterLineClearsTest {
     @Test
     public void timerDelayIncreases5msForEachClearedLine() {
         setUpGameForClearing5Lines();
-        game.start();
         game.hardDrop();
         assertEquals(600 - 4 * 5, game.getTimerDelay());
         piece.rotate(true);
