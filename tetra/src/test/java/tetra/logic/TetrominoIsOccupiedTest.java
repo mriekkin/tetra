@@ -7,9 +7,9 @@ public class TetrominoIsOccupiedTest {
 
     @Test
     public void isOccupiedReturnsFalseForNegativeCoordinates() {
-        assertEquals(false, Tetromino.O.isOccupied(Direction.UP, -1, 0));
-        assertEquals(false, Tetromino.O.isOccupied(Direction.UP, 0, -1));
-        assertEquals(false, Tetromino.O.isOccupied(Direction.UP, -1, -1));
+        assertEquals(false, Tetromino.J.isOccupied(Direction.UP, -1, 0));
+        assertEquals(false, Tetromino.J.isOccupied(Direction.UP, 0, -1));
+        assertEquals(false, Tetromino.J.isOccupied(Direction.UP, -1, -1));
     }
 
     @Test
@@ -21,16 +21,16 @@ public class TetrominoIsOccupiedTest {
 
     @Test
     public void isOccupiedWorksForCornerCoordinates() {
-        assertEquals(true, Tetromino.O.isOccupied(Direction.UP, 0, 0));
+        assertEquals(true, Tetromino.J.isOccupied(Direction.UP, 0, 0));
         assertEquals(true, Tetromino.I.isOccupied(Direction.UP, 3, 1));
     }
 
     @Test
     public void isOccupiedReturnsTrueForOccupiedTopLeftCorner() {
-        assertEquals(true, Tetromino.O.isOccupied(Direction.UP, 0, 0));
-        assertEquals(true, Tetromino.O.isOccupied(Direction.UP, 0, 1));
-        assertEquals(true, Tetromino.O.isOccupied(Direction.UP, 1, 0));
-        assertEquals(true, Tetromino.O.isOccupied(Direction.UP, 1, 1));
+        assertEquals(true, Tetromino.J.isOccupied(Direction.UP, 0, 0));
+        assertEquals(true, Tetromino.S.isOccupied(Direction.UP, 0, 1));
+        assertEquals(true, Tetromino.S.isOccupied(Direction.UP, 1, 0));
+        assertEquals(true, Tetromino.S.isOccupied(Direction.UP, 1, 1));
     }
 
     @Test
