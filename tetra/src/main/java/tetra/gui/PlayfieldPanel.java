@@ -34,6 +34,12 @@ public class PlayfieldPanel extends JPanel {
         this.spacing = spaceBetweenBlocks;
     }
 
+    public void setGame(Tetra game) {
+        this.game = game;
+        this.matrix = game.getMatrix();
+        this.piece = game.getPiece();
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -89,7 +95,6 @@ public class PlayfieldPanel extends JPanel {
         int fillX = x * (spacing + blockSize) + spacing;
         int fillY = y * (spacing + blockSize) + spacing;
         g.setColor(block.getColorAwt());
-        //g.fillRect(fillX, fillY, blockSize, blockSize);
         g.fill3DRect(fillX, fillY, blockSize, blockSize, true);
     }
 

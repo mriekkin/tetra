@@ -26,6 +26,12 @@ public class PieceKeyListener implements KeyListener {
         this.isSoftDropActive = false;
     }
 
+    public void setGame(Tetra game) {
+        this.game = game;
+        this.piece = game.getPiece();
+        this.isSoftDropActive = false;
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (game.isGameOver()) {

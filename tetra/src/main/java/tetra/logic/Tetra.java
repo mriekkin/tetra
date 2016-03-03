@@ -54,11 +54,11 @@ public class Tetra implements ActionListener {
     public Piece getPiece() {
         return piece;
     }
-    
+
     public RandomTetromino getRandom() {
         return random;
     }
-    
+
     public int getClearedLines() {
         return clearedLines;
     }
@@ -74,7 +74,12 @@ public class Tetra implements ActionListener {
     public void start() {
         timer.start();
     }
-    
+
+    public void stop() {
+        timer.stop();
+        timer.removeActionListener(this);
+    }
+
     public int getTimerDelay() {
         return timer.getDelay();
     }
@@ -162,6 +167,7 @@ public class Tetra implements ActionListener {
 
     private void gameOver() {
         gameOver = true;
+        timer.setDelay(computeTimerDelay(0));
         System.out.println("Game over!");
     }
 

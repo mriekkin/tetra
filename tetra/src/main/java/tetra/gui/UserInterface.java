@@ -3,6 +3,7 @@ package tetra.gui;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import tetra.logic.Matrix;
@@ -17,10 +18,11 @@ import tetra.logic.Tetra;
 public class UserInterface implements Runnable {
 
     private JFrame frame;
-    private final Tetra game;
-    private final Matrix matrix;
-    private final Piece piece;
+    private Tetra game;
+    private Matrix matrix;
+    private Piece piece;
     private PlayfieldPanel playfieldPanel;
+    private PieceKeyListener pieceKeyListener;
 
     private final int blockSize = 26;
     private final int blockSpacing = 2;
@@ -50,9 +52,32 @@ public class UserInterface implements Runnable {
         container.setLayout(new BorderLayout());
 
         playfieldPanel = new PlayfieldPanel(game, blockSize, blockSpacing);
-        container.add(playfieldPanel, BorderLayout.CENTER);
+        pieceKeyListener = new PieceKeyListener(game, piece, playfieldPanel);
 
-        frame.addKeyListener(new PieceKeyListener(game, piece, playfieldPanel));
+        JButton restartButton = new JButton("restart");
+        restartButton.setFocusable(false);
+        restartButton.addActionListener((e) -> {
+            restart();
+        });
+
+        frame.addKeyListener(pieceKeyListener);
+        container.add(restartButton, BorderLayout.NORTH);
+        container.add(playfieldPanel, BorderLayout.CENTER);
+    }
+
+    public void restart() {
+        game.stop();
+        setGame(new CreateGame(10, 20).create());
+        game.start();
+    }
+
+    private void setGame(Tetra game) {
+        this.game = game;
+        this.matrix = game.getMatrix();
+        this.piece = game.getPiece();
+        this.playfieldPanel.setGame(game);
+        this.pieceKeyListener.setGame(game);
+        game.setComponent(playfieldPanel);
     }
 
     private void setPanelSize() {
@@ -61,19 +86,15 @@ public class UserInterface implements Runnable {
         playfieldPanel.setPreferredSize(new Dimension(width, height));
     }
 
-    public int getRequiredWidth() {
+    private int getRequiredWidth() {
         return (blockSpacing + blockSize) * matrix.getCols() + blockSpacing;
     }
 
-    public int getRequiredHeight() {
+    private int getRequiredHeight() {
         return (blockSpacing + blockSize) * matrix.getRows() + blockSpacing;
     }
 
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    public PlayfieldPanel getGamePanel() {
+    public PlayfieldPanel getPlayfieldPanel() {
         return playfieldPanel;
     }
 
