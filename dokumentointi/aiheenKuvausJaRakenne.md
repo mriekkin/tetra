@@ -69,11 +69,7 @@ Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajen
 * *Pistelaskun jatkokehitys (esimerkiksi T Spin)*
 * *Kootut tilastotiedot kaikista pelatuista peleistä*
 
-## Määrittelyvaiheen luokkakaavio
-
-![Määrittelyvaiheen luokkakaavio](maarittelyvaiheen-luokkakaavio-v2-plain.png)
-
-## Päivitetty luokkakaavio
+## Rakennekuvaus
 
 Pelin logiikasta vastaava pääluokka on nimeltään Tetra. Tämän luokan vastuu on päivittää pelisilmukkaa ajastimen avulla. Pääluokka kytkee ohjelman eri osaset toisiinsa, mutta delegoi suurimman osan työstä muille luokille. Pääluokka käyttää apunaan ensisijaisesti luokkia Piece ja Matrix, jotka ovat pelin käsitteistössäkin keskeisiä luokkia. Näistä ensimmäinen, Piece, kuvaa pelaajan hallitsemaa palikkaa. Näistä jälkimmäinen, Matrix, kuvaa tyhjistä ruuduista ja lukittuneista palasista koostuvaa pelialuetta. Näiden kahden lisäksi pääluokka käyttää vielä kolmatta luokkaa RandomTetromino satunnaisuuden mallintamiseen.
 
@@ -81,7 +77,7 @@ Pelin pelialue on matriisi, joka koostuu tyhjistä ruuduista ja paikoilleen luki
 
 Tetristä pelataan tetromino-palikoilla, joita on olemassa 7 erilaista tyyppiä. Ohjelmassa nämä tyypit määritellään lueteltuna tyyppinä Tetromino. Yksi Tetromino-luokan ilmentymä esittää yhden tyyppisen palikan muodon ja sen sallitut kierrot. Pelaajan ohjaaman palikan Piece esittämiseen tarvitaan siis kolme asiaa: tetromino-palikka, sen sijainti matriisissa, ja orientaatio. Näistä viimeistä, eli orientaatiota, esittää lueteltu tyyppi Direction. Direction määrittelee pelissä sallitut liikkumissuunnat ja kierrot näiden välillä.
 
-![Luokkakaavio](luokkakaavio-v2-plain.png)
+![Luokkakaavio](luokkakaavio.png)
 
 ## Sekvenssikaaviot
 
