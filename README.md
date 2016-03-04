@@ -9,10 +9,15 @@ Tetriksen palikat koostuvat neljästä yhden ruudun kokoisesta palasesta. Alkupe
 
 ## Dokumentaatio
 
-Katso [aihemäärittely ja luokkakaavio](dokumentointi/aiheenKuvausJaRakenne.md) sekä [tuntikirjanpito](dokumentointi/tuntikirjanpito.md).
+Tekninen dokumentaatio:
 
-Päivitetty [pit-raportti](dokumentointi/pit/index.html) ja [checkstyle-raportti](dokumentointi/checkstyle/checkstyle.html) löytyvät omista kansioistaan.
+* [Aiheen kuvaus ja rakenne](dokumentointi/aiheenKuvausJaRakenne.md) (aihemäärittely, rakennekuvaus ja sekvenssikaaviot)
+* [Javadoc-dokumentaatio](javadoc/index.html)
+* [Checkstyle-raportti](dokumentointi/checkstyle/checkstyle.html)
+* [Testausdokumentti](dokumentointi/testausdokumentti.md)
+* [PIT-raportti](dokumentointi/pit/index.html)
 
-Logiikkapaketin luokille on kirjoitettu jo varsin kattava [Javadoc-dokumentaatio](javadoc/index.html).
+Muu dokumentaatio:
 
-[Käyttöohje](dokumentointi/käyttöohjeet.md).
+* [Käyttöohje](dokumentointi/käyttöohjeet.md)
+* [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md).
