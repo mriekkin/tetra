@@ -4,7 +4,7 @@
 
 Projekti sisältää varsin kattavan joukon yksikkötestejä. Automaattisia yksikkötestejä on kirjoitettu jokaiselle logiikkapaketin (tetra.logic) luokalle. Testit on jaettu erillisiin tiedostoihin, joissa on pääosin 50-150 riviä per tiedosto. Nämä tiedostot on lueteltu alla olevassa taulukossa. Automaattinen testaus ei kuitenkaan koske ohjelman käyttöliittymää. Kaikki testit on kirjoitettu JUnit-kirjastolla.
 
-Testejä on yhteensä 134 kappaletta. Yhdessä niiden rivikattavuus on 97 % ja mutaatiokattavuus 87 % ([PIT-raportti](pit/index.html)). Kattavuus on mitattu PIT-järjestelmällä.
+Testejä on yhteensä 137 kappaletta. Yhdessä niiden rivikattavuus on 99 % ja mutaatiokattavuus 88 % ([PIT-raportti](pit/index.html)). Kattavuus on mitattu PIT-järjestelmällä.
 
 | Testattava luokka | Yksikkötestiluokka              |
 | :---------------- | :------------------------------ |
