@@ -33,3 +33,7 @@ Testit hyödyntävät lisäksi kolmea apuluokkaa, jotka sisältävät pienen mä
 ## Järjestelmätestaus
 
 Ohjelmaa on testattu järjestelmätasolla ajamalla sitä useita kertoja erilaisissa pelitilanteissa. Järjestelmätestauksessa ei ole hyödynnetty erityistä testaussuunnitelmaa, mutta testaaja on yrittänyt keskittyä sellaisiin operaatioihin, joiden toteutus on vaatinut erityistä huolellisuutta. Testaus on suoritettu pääosin Mac-alustalla, mutta ohjelman toimivuus on tarkistettu myös koulun Linux-koneilla. Ohjelmaa on ajettu sekä Netbeansin kautta että erillisestä jar-tiedostosta.
+
+## Tunnetut bugit
+
+Ohjelmassa on yksi tiedossa oleva bugi, joka voi ilmestyä pelin päättyessä. Viimeinen ilmestyvä palikka voi mennä päällekkäin pinon päällimmäisten palasten kanssa. Tämä ei vaikuta pelin kulkuun, koska tässä tilanteessa peli päättyy. Tämä johtuu siitä, että nykyisessä toteutuksessa uusi palikka ilmestyy aina samaan paikkaan. Tetriksessä tämä ongelma on ratkaistu sillä tavalla, että palikan ilmestymispaikka voi tarvittaessa siirtyä pari riviä ylöspäin. Tätä varten matriisin yläosassa on kaksi ylimääräistä riviä, joita pelaaja ei näe. Siinä mielessä kyseessä on toisaalta bugi, toisaalta ominaisuus, joka on jätetty toteuttamtta yksinkertaisuuden vuoksi.
