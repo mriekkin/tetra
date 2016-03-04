@@ -117,19 +117,25 @@ public class PlayfieldPanel extends JPanel {
     }
 
     private void drawGameOverString(Graphics2D g2) {
+        final double textLines = 4.25;
+        int clearedLines = game.getClearedLines();
+        String lines = clearedLines == 1 ? "LINE" : "LINES";
+
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setFont(gameOverFont);
         g2.setColor(gameOverColor);
-        drawString(g2, "GAME", 1, 2);
-        drawString(g2, "OVER", 2, 2);
+        drawString(g2, "GAME", 1, textLines);
+        drawString(g2, "OVER", 2, textLines);
+        drawString(g2, clearedLines + "", 3.25, textLines);
+        drawString(g2, lines, 4.25, textLines);
     }
 
-    private void drawString(Graphics2D g2, String text, int line, int lines) {
+    private void drawString(Graphics2D g2, String text, double line, double lines) {
         FontMetrics fm = g2.getFontMetrics();
         int width = fm.stringWidth(text);
         int height = fm.getAscent();
         int x = (getWidth() - width) / 2;
-        int y = (getHeight() - height * lines) / 2 + (line - 1) * height;
+        int y = (int) ((getHeight() - height * lines) / 2.0 + (line - 1) * height);
         g2.drawString(text, x, y);
     }
 
