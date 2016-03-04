@@ -40,7 +40,6 @@ public class UserInterface implements Runnable {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane());
-
         setPanelSize();
 
         frame.pack();

@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TetraUpdateGameAfterLineClearsTest {
+public class TetraUpdateWhenLinesClearedTest {
 
     Tetra game;
     Matrix matrix;
