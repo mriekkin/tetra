@@ -7,6 +7,9 @@ import tetra.logic.RandomTetromino;
 import tetra.logic.Tetra;
 import tetra.logic.Tetromino;
 
+/**
+ * Encapsulates the action of creating a new game.
+ */
 public class CreateGame {
 
     private int matrixWidth;

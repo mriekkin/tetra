@@ -13,7 +13,7 @@ import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
 /**
- * Draws the game view.
+ * Displays the game by drawing the playfield.
  */
 public class PlayfieldPanel extends JPanel {
 
