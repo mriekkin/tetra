@@ -51,6 +51,8 @@ public class UserInterface implements Runnable {
         container.setLayout(new BorderLayout());
 
         playfieldPanel = new PlayfieldPanel(game, blockSize, blockSpacing);
+        playfieldPanel.setDoubleBuffered(true);
+
         pieceKeyListener = new PieceKeyListener(game, piece, playfieldPanel);
 
         JButton restartButton = new JButton("restart");
