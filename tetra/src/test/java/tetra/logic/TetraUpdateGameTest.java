@@ -106,4 +106,33 @@ public class TetraUpdateGameTest {
         assertEquals(true, game.isGameOver());
     }
 
+    @Test
+    public void startSoftDropWorks() {
+        game.startSoftDrop();
+        assertEquals(true, game.isSoftDropActive());
+        assertEquals(50, game.getTimerDelay());
+    }
+
+    @Test
+    public void endSoftDropWorks() {
+        game.startSoftDrop();
+        game.endSoftDrop();
+        assertEquals(false, game.isSoftDropActive());
+        assertEquals(600, game.getTimerDelay());
+    }
+
+    @Test
+    public void softDropCanBeCalledMultipleTimes() {
+        for (int i = 0; i < 10; i++) {
+            game.startSoftDrop();
+            game.startSoftDrop();
+            assertEquals(true, game.isSoftDropActive());
+            assertEquals(50, game.getTimerDelay());
+            game.endSoftDrop();
+            game.endSoftDrop();
+            assertEquals(false, game.isSoftDropActive());
+            assertEquals(600, game.getTimerDelay());
+        }
+    }
+
 }
