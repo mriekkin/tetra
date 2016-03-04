@@ -44,6 +44,7 @@ public class UserInterface implements Runnable {
 
         frame.pack();
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
