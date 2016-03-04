@@ -188,7 +188,6 @@ public class Tetra implements ActionListener {
     private void gameOver() {
         gameOver = true;
         timer.setDelay(computeTimerDelay(0));
-        System.out.println("Game over!");
         isSoftDropActive = false;
     }
 
