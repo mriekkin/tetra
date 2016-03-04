@@ -15,6 +15,7 @@ public class Tetra implements ActionListener {
     private RandomTetromino random;
     private int clearedLines;
     private boolean gameOver;
+    private boolean isSoftDropActive;
 
     private Timer timer;
     private Component component;
@@ -33,6 +34,7 @@ public class Tetra implements ActionListener {
         this.random = random;
         clearedLines = 0;
         this.gameOver = false;
+        this.isSoftDropActive = false;
         this.timer = new Timer(computeTimerDelay(0), this);
         this.component = null;
     }
@@ -126,16 +128,30 @@ public class Tetra implements ActionListener {
     }
 
     public void startSoftDrop() {
+        if (isSoftDropActive) {
+            return;
+        }
+
+        this.isSoftDropActive = true;
         timer.setInitialDelay(0);
         timer.setDelay(50);
         timer.restart();
     }
 
     public void endSoftDrop() {
+        if (!isSoftDropActive) {
+            return;
+        }
+
+        this.isSoftDropActive = false;
         int delay = computeTimerDelay(clearedLines);
         timer.setInitialDelay(delay);
         timer.setDelay(delay);
         timer.restart();
+    }
+
+    public boolean isSoftDropActive() {
+        return isSoftDropActive;
     }
 
     private void respawn() {
@@ -159,8 +175,9 @@ public class Tetra implements ActionListener {
 
         if (n > 0) {
             clearedLines += n;
-            timer.setDelay(computeTimerDelay(clearedLines));
-            //System.out.println(timer.getDelay());
+            if (!isSoftDropActive) {
+                timer.setDelay(computeTimerDelay(clearedLines));
+            }
         }
     }
 
@@ -172,6 +189,7 @@ public class Tetra implements ActionListener {
         gameOver = true;
         timer.setDelay(computeTimerDelay(0));
         System.out.println("Game over!");
+        isSoftDropActive = false;
     }
 
 }
