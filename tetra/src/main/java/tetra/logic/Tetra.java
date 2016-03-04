@@ -126,13 +126,16 @@ public class Tetra implements ActionListener {
     }
 
     public void startSoftDrop() {
-        timer.setDelay(40);
-        update();
+        timer.setInitialDelay(0);
+        timer.setDelay(50);
+        timer.restart();
     }
 
     public void endSoftDrop() {
-        timer.setDelay(computeTimerDelay(clearedLines));
-        //update();
+        int delay = computeTimerDelay(clearedLines);
+        timer.setInitialDelay(delay);
+        timer.setDelay(delay);
+        timer.restart();
     }
 
     private void respawn() {

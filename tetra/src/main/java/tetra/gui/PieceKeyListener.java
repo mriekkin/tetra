@@ -46,10 +46,10 @@ public class PieceKeyListener implements KeyListener {
                 piece.move(Direction.RIGHT);
                 break;
             case KeyEvent.VK_DOWN:
-//                if (!isSoftDropActive) {
-//                    game.startSoftDrop();
-//                    isSoftDropActive = true;
-//                }
+                if (!isSoftDropActive) {
+                    game.startSoftDrop();
+                    isSoftDropActive = true;
+                }
                 break;
             case KeyEvent.VK_UP:
             case KeyEvent.VK_X:
@@ -78,10 +78,10 @@ public class PieceKeyListener implements KeyListener {
 
         switch (e.getKeyCode()) {
             case KeyEvent.VK_DOWN:
-//                if (isSoftDropActive) {
-//                    game.endSoftDrop();
-//                    isSoftDropActive = false;
-//                }
+                if (isSoftDropActive) {
+                    game.endSoftDrop();
+                    isSoftDropActive = false;
+                }
                 break;
         }
     }
