@@ -23,10 +23,8 @@ Pelin aika pelaajalla on käytettävissä seuraavat pelilogiikkaan liittyvät to
   * Pelaaja voi pyörittää sillä hetkellä pelattavissa olevaa palikkaa myötäpäivään tai vastapäivään.
 * *Palikan tippumisen nopeuttaminen (soft drop)*
   * Pelaaja voi käskeä palikkaa tippumaan tavallista nopeammin.
-  * Nopeuttamisesta saa pisteitä, koska se lisää pelin vaativuutta.
 * *Palikan tiputtaminen suoraan ala-asentoon (hard drop)*
-  * Välittömästä tiputtamisesta saa pisteitä, koska se lisää pelin vaativuutta.
-  * Välitön tiputtaminen antaa enemmän pisteitä kuin tippumisen nopeuttaminen.
+  * Pelaaja voi tiputtaa palikan suoraan ala-asentoon.
 
 Seuraavat toiminnot ovat olennainen osa pelilogiikkaa, mutta pelaaja ei kontrolloi niiden suorittamista.
 
@@ -36,37 +34,25 @@ Seuraavat toiminnot ovat olennainen osa pelilogiikkaa, mutta pelaaja ei kontroll
 * *Palikkaa saavuttaa ala-asennon, jonka jälkeen se ei enää ole pelattavissa*
   * Palikka saavuttaa ala-asennon, kun se törmää toiseen sen alla olevaan palikkaan tai pelialueen alareunaan.
   * Tämän jälkeen palikka ei enää liiku eikä ole pelaajan liikuteltavissa.
-  * Jos pelialueelle muodostui yksi tai useampi täysi vaakarivi
-    * Täydet vaakarivit poistuvat pelialueelta. Yhtä aikaa voi täyttyä 1-4 riviä.
-    * Pelaaja saa pisteitä täyttyneiden rivien lukumäärän mukaan. Parhaat pisteet saa neljällä samanaikaisella rivillä.
-  * Jos yksikään vaakarivi ei täyttynyt kokonaan
-    * Viimeisin pelattu palikka jää paikalleen.
+  * Jos pelialueelle muodostui yksi tai useampi täysi vaakarivi, täydet vaakarivit poistuvat pelialueelta. Yhtä aikaa voi täyttyä 1-4 riviä.
+  * Jos yksikään vaakarivi ei täyttynyt kokonaan, viimeisin pelattu palikka jää paikalleen.
   * Peli arpoo uuden palikan, ja lähettää sen liikkeelle pelialueen yläreunasta.
 * *Peli päättyy, kun palikoiden pino saavuttaa pelialueen yläreunan*
-  * Pelin päätyttyä näytetään muutamia tilastotietoja, kuten kokonaispisteet, tuhotut rivit ja pelin kesto.
-  * Jos pistemäärä oikeuttaa sijoitukseen pistelistalla, kysytään listalle talletettava nimi.
-  * Pelaaja voi aloittaa uuden pelin, siirtyä valikoihin tai poistua ohjelmasta.
+  * Pelin päätyttyä näytetään täysien tyhjennettyjen rivien lukumäärä.
+  * Pelaaja voi aloittaa uuden pelin, tai poistua ohjelmasta.
 
 Pelin aika pelaajalla on käytettävissä myös seuraavat toiminnot, jotka eivät liity pelilogiikkaan.
 
-* *Pause*
-* *Pelin lopettaminen ja valikoihin siirtyminen*
-
-**Pelaajan toiminnot, silloin kun peli ei ole käynnissä (valikot):**
-
-* *Uuden pelin aloitus*
-* *Asetukset*
-* *Pistelista (high score table)*
+* *Uuden pelin aloitus (restart)*
 * *Ohjelman sulkeminen*
 
 **Aiheen laajennusmahdollisuudet:**
 
 Seuraavassa on joitakin ajatuksia siitä, miten aihetta olisi mahdollista laajentaa ajan niin salliessa.
 
-* *Väriteeman valinta (grafiikoiden valinta)*
+* *Pisteiden laskenta*
+* *Tulevien palikoiden näyttö*
 * *Haamupalikka, joka näyttää tulevan loppuasennon (ghost piece)*
-* *Pelitilanteen tallennus ja aikaisemmin tallennetun pelin jatkaminen*
-* *Pistelaskun jatkokehitys (esimerkiksi T Spin)*
 * *Kootut tilastotiedot kaikista pelatuista peleistä*
 
 ## Rakennekuvaus
