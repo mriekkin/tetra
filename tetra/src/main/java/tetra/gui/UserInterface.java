@@ -11,9 +11,7 @@ import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
 /**
- * The principal GUI class.
- *
- * Implements a GUI using the Java Swing library.
+ * Implements a graphical user interface using the Java Swing library.
  */
 public class UserInterface implements Runnable {
 
@@ -28,6 +26,11 @@ public class UserInterface implements Runnable {
     private final int blockSize = 26;
     private final int blockSpacing = 2;
 
+    /**
+     * Class constructor specifying the game instance to be displayed.
+     *
+     * @param game game instance to be displayed
+     */
     public UserInterface(Tetra game) {
         this.game = game;
         this.matrix = game.getMatrix();
@@ -59,7 +62,7 @@ public class UserInterface implements Runnable {
         playfieldPanel = new PlayfieldPanel(game, blockSize, blockSpacing);
         playfieldPanel.setDoubleBuffered(true);
 
-        pieceKeyListener = new PieceKeyListener(game, piece, playfieldPanel);
+        pieceKeyListener = new PieceKeyListener(game, playfieldPanel);
 
         restartButton = new JButton("Start a new game");
         restartButton.setFocusable(false);
@@ -72,16 +75,27 @@ public class UserInterface implements Runnable {
         container.add(playfieldPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Displays a button on top of the frame, which starts a new game if
+     * pressed.
+     */
     public void showRestartButton() {
         restartButton.setVisible(true);
         frame.pack();
     }
 
+    /**
+     * Hides the restart button if it was visible.
+     */
     public void hideRestartButton() {
         restartButton.setVisible(false);
         frame.pack();
     }
 
+    /**
+     * Disposes the current game instance, creates a new one, and attaches all
+     * GUI components to the new instance.
+     */
     public void restart() {
         hideRestartButton();
         game.stop();
@@ -115,6 +129,11 @@ public class UserInterface implements Runnable {
         return (blockSpacing + blockSize) * matrix.getRows() + blockSpacing;
     }
 
+    /**
+     * Returns the playfield panel.
+     *
+     * @return playfield panel
+     */
     public PlayfieldPanel getPlayfieldPanel() {
         return playfieldPanel;
     }

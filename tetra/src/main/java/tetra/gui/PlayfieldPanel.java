@@ -13,7 +13,9 @@ import tetra.logic.Piece;
 import tetra.logic.Tetra;
 
 /**
- * Displays the game by drawing the playfield.
+ * Draws the contents of the matrix, and the piece in its current position. In
+ * addition to these components, draws a background grid, which may assist with
+ * piece positioning.
  */
 public class PlayfieldPanel extends JPanel {
 
@@ -28,6 +30,14 @@ public class PlayfieldPanel extends JPanel {
     private Matrix matrix;
     private Piece piece;
 
+    /**
+     * Class constructor which specifies the game instance to be drawn, and
+     * block size in pixels.
+     *
+     * @param game game instance to be drawn
+     * @param blockSize width of one block in pixels
+     * @param spaceBetweenBlocks space between adjacent blocks in pixels
+     */
     public PlayfieldPanel(Tetra game, int blockSize, int spaceBetweenBlocks) {
         this.game = game;
         this.matrix = game.getMatrix();
@@ -42,6 +52,11 @@ public class PlayfieldPanel extends JPanel {
         gameOverFont = new Font("SansSerif", Font.PLAIN, 70).deriveFont(Font.BOLD);
     }
 
+    /**
+     * Resets the game instance to be drawn.
+     *
+     * @param game game instance to be drawn
+     */
     public void setGame(Tetra game) {
         this.game = game;
         this.matrix = game.getMatrix();

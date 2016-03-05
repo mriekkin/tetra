@@ -4,10 +4,15 @@ import javax.swing.SwingUtilities;
 import tetra.logic.Tetra;
 
 /**
- * Program entry point.
+ * Starts the user interface, and attaches it to a new game.
  */
 public class Main {
 
+    /**
+     * Starts the user interface, and attaches it to a new game.
+     *
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args) {
         Tetra game = new CreateGame(10, 20).create();
         UserInterface gui = new UserInterface(game);
