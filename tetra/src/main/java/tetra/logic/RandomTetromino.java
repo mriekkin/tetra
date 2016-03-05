@@ -12,10 +12,12 @@ import java.util.Random;
  * until the bag is empty. After that the bag is filled again with 4 instances
  * of each piece.
  * <p>
- * This appears to be a common way to model randomness in Tetris-derivatives.
- * The objective is to reduce long sequences of the same type, and to ensure
- * that there won't be extremely long sequences without some preferred piece. It
- * also means that each piece will occur exactly 4 times in every 28 pieces.
+ * The objective of this scheme is to guarantee properties which are thought to
+ * be beneficial for good gameplay. To be more specific, the objective of this
+ * scheme is to reduce long sequences of the same type, and to ensure that there
+ * won't be extremely long sequences without some preferred piece. The general
+ * contract of this scheme is that each piece will occur exactly 4 times in
+ * every 28 pieces.
  */
 public class RandomTetromino {
 
@@ -52,7 +54,7 @@ public class RandomTetromino {
      * general contract of this class is that each piece will occur exactly 4
      * times in every 28 pieces
      *
-     * @return a tetromino pulled at random from a bag of tetrominoes
+     * @return a tetromino pulled at random from a bag
      */
     public Tetromino nextTetromino() {
         if (n == 0) {

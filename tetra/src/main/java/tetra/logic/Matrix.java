@@ -3,14 +3,13 @@ package tetra.logic;
 /**
  * A rectangular matrix consisting of empty cells and blocks. This is the
  * playing field of Tetris. A typical matrix size is 10x20 blocks for the
- * visible playing field. In addition to this there's room for 2 or more hidden
- * rows above the visible matrix. New pieces should spawn above the visible
- * playing field, so that they descent into view smoothly.
+ * visible playing field. In addition to this, many Tetris variants include 2 or
+ * more hidden rows above the visible matrix.
  * <p>
  * It should be noted that a matrix consists of blocks, not tetrominoes. The
- * distinction being that when a tetromino locks in place it disassembles from
- * one entity into 4. Each block is independent from any other, regardless of
- * whether they originate from the same piece.
+ * distinction being, that when a tetromino locks in place, it disassembles from
+ * one entity into 4. In other words, each block is independent from any other,
+ * regardless of whether they originate from the same piece.
  */
 public class Matrix {
 
@@ -98,6 +97,15 @@ public class Matrix {
         return getBlock(x, y) != null;
     }
 
+    /**
+     * Returns true if the specified (x,&nbsp;y) position is outside the
+     * boundaries of this matrix; false otherwise.
+     *
+     * @param x x-coordinate of the position
+     * @param y y-coordinate of the position
+     * @return true if the specified position is outside the boundaries of this
+     * matrix, false otherwise
+     */
     public boolean isOutOfBounds(int x, int y) {
         return x < 0 || x >= cols || y < 0 || y >= rows;
     }
@@ -124,8 +132,17 @@ public class Matrix {
         }
     }
 
+    /**
+     * Clears complete lines within the range yMin..yMax, including the
+     * specified lines yMin and yMax. If there are complete lines to be cleared,
+     * rows above the cleared lines will be shifted down accordingly.
+     *
+     * @param yMin the first row to inspect, inclusive
+     * @param yMax the last row to investigate, inclusive
+     * @return the number of cleared lines
+     */
     public int clearCompleteLines(int yMin, int yMax) {
-        return lineClearer.clearCompleteLinesAndShift(yMin, yMax);
+        return lineClearer.clearCompleteLinesAndShiftDown(yMin, yMax);
     }
 
 }

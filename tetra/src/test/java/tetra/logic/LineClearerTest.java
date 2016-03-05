@@ -117,7 +117,7 @@ public class LineClearerTest {
         MatrixHelper.fillRow(matrix, 19, block);
         MatrixHelper.fillRow(matrix, 20, block);
         MatrixHelper.fillRow(matrix, 21, block);
-        int rows = lineClearer.clearCompleteLinesAndShift(20, 21);
+        int rows = lineClearer.clearCompleteLinesAndShiftDown(20, 21);
         assertEquals(2, rows);
         assertEquals(true, lineClearer.isEmptyLine(19));
         assertEquals(true, lineClearer.isEmptyLine(20));
@@ -131,7 +131,7 @@ public class LineClearerTest {
         MatrixHelper.fillRow(matrix, 2, block);
         MatrixHelper.fillRow(matrix, 3, block);
         MatrixHelper.fillRow(matrix, 4, block);
-        lineClearer.clearCompleteLinesAndShift(0, 2);
+        lineClearer.clearCompleteLinesAndShiftDown(0, 2);
         assertEquals(true, lineClearer.isEmptyLine(0));
         assertEquals(true, lineClearer.isEmptyLine(1));
         assertEquals(true, lineClearer.isEmptyLine(2));
