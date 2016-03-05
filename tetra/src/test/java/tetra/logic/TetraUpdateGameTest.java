@@ -12,6 +12,7 @@ public class TetraUpdateGameTest {
     LineClearer lineClearer;
     RandomTetromino random;
     Tetromino[] sequence;
+    boolean didUpdate;
 
     @Before
     public void setUp() {
@@ -133,6 +134,28 @@ public class TetraUpdateGameTest {
             assertEquals(false, game.isSoftDropActive());
             assertEquals(600, game.getTimerDelay());
         }
+    }
+
+    @Test
+    public void setGameOverListenerWorks() {
+        didUpdate = false;
+        UpdateListener listener = () -> {
+            didUpdate = true;
+        };
+        game.setGameOverListener(listener);
+        assertEquals(listener, game.getGameOverListener());
+    }
+
+    @Test
+    public void gameOverListenerIsCalledOnGameOver() {
+        didUpdate = false;
+        game.setGameOverListener(() -> {
+            didUpdate = true;
+        });
+        while (!game.isGameOver()) {
+            game.hardDrop();
+        }
+        assertEquals(true, didUpdate);
     }
 
 }

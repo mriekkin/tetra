@@ -19,6 +19,7 @@ public class Tetra implements ActionListener {
 
     private Timer timer;
     private Component component;
+    private UpdateListener gameOverListener;
 
     /**
      * Class constructor which specifies the matrix and piece to use for this
@@ -37,6 +38,7 @@ public class Tetra implements ActionListener {
         this.isSoftDropActive = false;
         this.timer = new Timer(computeTimerDelay(0), this);
         this.component = null;
+        this.gameOverListener = null;
     }
 
     /**
@@ -189,6 +191,18 @@ public class Tetra implements ActionListener {
         gameOver = true;
         timer.setDelay(computeTimerDelay(0));
         isSoftDropActive = false;
+
+        if (gameOverListener != null) {
+            gameOverListener.update();
+        }
+    }
+
+    public UpdateListener getGameOverListener() {
+        return gameOverListener;
+    }
+
+    public void setGameOverListener(UpdateListener gameOverListener) {
+        this.gameOverListener = gameOverListener;
     }
 
 }
